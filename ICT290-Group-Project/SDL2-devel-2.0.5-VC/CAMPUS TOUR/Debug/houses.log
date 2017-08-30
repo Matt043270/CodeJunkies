@@ -1,0 +1,279 @@
+﻿  DisplayWorld.cpp
+DisplayWorld.cpp(110): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(136): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(153): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(392): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(480): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(492): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(558): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(559): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(560): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(561): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(562): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(564): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(571): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(572): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(573): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(574): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(575): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(577): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(585): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(586): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(587): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(588): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(589): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(591): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(658): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(662): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(743): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(748): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(752): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(758): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(762): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(769): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(773): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(779): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(796): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(800): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(806): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(810): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(851): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(858): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(869): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(876): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(899): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(913): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(933): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(971): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(972): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(973): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(974): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1024): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(1032): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(1039): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(1052): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(1060): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(1126): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1127): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1128): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1129): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1138): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1139): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1140): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1141): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1432): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(1634): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(1649): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(1665): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(1685): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(1708): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(1712): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(1731): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(1735): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(1755): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(1759): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(1779): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(1783): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(1844): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1845): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1846): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1847): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1849): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1856): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1857): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1858): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1859): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1860): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1869): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1871): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1872): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1873): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1874): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1875): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1883): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1884): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1885): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1886): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1887): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1888): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1898): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1899): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1900): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1901): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1911): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1912): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1913): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1914): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1922): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1923): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1924): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1925): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1926): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1927): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1937): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1938): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1939): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1940): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1950): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1951): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1952): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1953): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1960): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1961): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1962): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1963): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1964): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1965): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1966): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1973): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1975): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1976): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1977): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1978): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1979): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1986): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1988): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1989): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1990): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1991): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(1992): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2000): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2001): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2002): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2003): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2004): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2015): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2017): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2028): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2030): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2074): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2076): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2077): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2078): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2078): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2079): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2080): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2080): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2086): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2088): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2089): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2090): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2090): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2091): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2092): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2092): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2102): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2104): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2105): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2106): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2107): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2108): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2114): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2116): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2117): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2118): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2119): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2120): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2150): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2154): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2211): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2238): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2252): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2280): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2307): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2321): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2481): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2515): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2546): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2589): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2594): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2375): warning C4101: 'j': unreferenced local variable
+DisplayWorld.cpp(2725): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2727): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2728): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2729): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2730): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2737): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2739): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2740): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2741): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2742): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2749): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2751): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2752): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2753): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2754): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2761): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2763): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2764): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2765): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2766): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2775): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2776): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2777): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2778): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(2811): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2822): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2834): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2868): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2879): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2891): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2901): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2914): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(2998): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(3009): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(3020): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(3032): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(3050): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(3277): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(3284): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(3291): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(3310): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(3310): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(3314): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(3314): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(3330): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(3330): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(3334): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(3334): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(3442): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+DisplayWorld.cpp(3451): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(3458): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(3465): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(3471): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(3472): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(3473): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(3484): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(3491): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(3498): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(3504): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(3505): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(3506): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+DisplayWorld.cpp(3518): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3519): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3521): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3522): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3524): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3525): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3527): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3528): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3530): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3531): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3536): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3541): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3546): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3552): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3554): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3555): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3556): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3557): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3558): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3559): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3560): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3561): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3562): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3563): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+DisplayWorld.cpp(3564): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+  houses.vcxproj -> C:\Users\chris\Documents\GitHub\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\.\Debug\houses.exe
+  houses.vcxproj -> .\Debug\houses.pdb (Full PDB)
+BSCMAKE : error BK1506: cannot open file '.\Debug\houses.bsc'
