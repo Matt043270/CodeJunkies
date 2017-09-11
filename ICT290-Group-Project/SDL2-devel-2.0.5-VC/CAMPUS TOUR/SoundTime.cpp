@@ -24,7 +24,7 @@ CSoundTime::CSoundTime(int min, int sec, int ms)
 	// convert to time from mins, sec and ms
 	// convert to time from mins, sec and ms
 	double tmpTime = (100.0 / 60.0  * (double)min * 100000.0) + (100.0 / 60.0  * (double)sec * 1000.0) + (double)ms;
-	Uint32 m_time = (Uint32) tmpTime; // <- someone need to do this one
+	Uint32 m_time = (Uint32)tmpTime; // <- someone need to do this one
 }
 
 CSoundTime::~CSoundTime()
@@ -71,12 +71,12 @@ CSoundTime & CSoundTime::operator-- ()
 //{
 //	return 0;
 //}
-				
+
 int CSoundTime::operator== (const CSoundTime& cst)
 {
 	return 0;
 }
-	
+
 void CSoundTime::addMin(int mins)
 {
 }
@@ -87,5 +87,5 @@ void CSoundTime::addSec(int seconds)
 
 void CSoundTime::addMS(int milliseconds)
 {
-	
+
 }

@@ -8,146 +8,146 @@
 
 #ifndef AABBNODE_H
 #define AABBNODE_H
-#include<stdlib.h>
+
 #include <vector>
 #include <freeglut.h>
 
 //--------------------------------------------------------------------------------------
+/**
+@class AABBNode
+@brief Stores details for each bounding box used for collision detection.
 
+Each node is stored in each link of the AABB Linked List.
 
-	/**
-	@class AABBNode
-	@brief Represents a single node for use by AABBLinkedList.
-	Provides the basic functions for a node. Get and set methods
-	for its data members and get and set methods for 
-	pointers to the next node.
+@author Shay Leary
+@version 01
+@date MAR05
 
-	@author Shay Leary
-	@version 1
-	@date March 2005
+@author Team CodeJunkies
+@version 02
+@date 05SEP16
 
-	@todo Represents a node in a linked list.
-	@bug No bugs.  We hope.  Blame Shay.
-
-	*/
+*/
 class AABBNode
 {
 public:
-	AABBNode () {Clear();}
-    virtual ~AABBNode () {Clear();}
+	AABBNode() { Clear(); }
+	virtual ~AABBNode() { Clear(); }
 
 	//----------------------------------------------------------------------------------
 
-		/**
-		@brief  Used by the destructor.
-		sets member m_next to NULL
-		*/
-	void  Clear   ();
+	/**
+	@brief Resets the node data
+
+	@return void
+	*/
+	void  Clear();
 
 	//----------------------------------------------------------------------------------
 	//  Get Methods
 	//----------------------------------------------------------------------------------
 
-		/**
-		@brief returns value of member variable m_BBox.max.x
+	/**
+	@brief Returns the maximum X value for the node
 
-		@retval GLdouble
-		*/
-	GLdouble GetMaxX () {return m_BBox.max.x;}
+	@return GLdouble
+	*/
+	GLdouble GetMaxX() { return m_BBox.max.x; }
 
-		/**
-		@brief returns value of member variable m_BBox.min.x
+	/**
+	@brief Returns the minimum X value for the node
 
-		@retval GLdouble
-		*/
-	GLdouble GetMinX () {return m_BBox.min.x;}
+	@return GLdouble
+	*/
+	GLdouble GetMinX() { return m_BBox.min.x; }
 
-		/**
-		@brief returns value of member variable m_BBox.max.y
+	/**
+	@brief Returns the maximum Y value for the node
 
-		@retval GLdouble
-		*/
-	GLdouble GetMaxY () {return m_BBox.max.y;}
+	@return GLdouble
+	*/
+	GLdouble GetMaxY() { return m_BBox.max.y; }
 
-		/**
-		@brief returns value of member variable m_BBox.min.y
+	/**
+	@brief Returns the minimum Y value for the node
 
-		@retval GLdouble
-		*/
-	GLdouble GetMinY () {return m_BBox.min.y;}
+	@return GLdouble
+	*/
+	GLdouble GetMinY() { return m_BBox.min.y; }
 
-		/**
-		@brief returns value of member variable m_BBox.max.z
+	/**
+	@brief Returns the maximum Z value for the node
 
-		@retval GLdouble
-		*/
-	GLdouble GetMaxZ () {return m_BBox.max.z;}
+	@return GLdouble
+	*/
+	GLdouble GetMaxZ() { return m_BBox.max.z; }
 
-		/**
-		@brief returns value of member variable m_BBox.min.z
+	/**
+	@brief Returns the minimum Z value for the node
 
-		@retval GLdouble
-		*/
-	GLdouble GetMinZ () {return m_BBox.min.z;}
+	@return GLdouble
+	*/
+	GLdouble GetMinZ() { return m_BBox.min.z; }
 
-	
+	/**
+	@brief Returns the address of the link to the next node in the list
 
-    
-
-		/**
-		@brief returns a pointer to the next node
-
-		@retval AABBNode
-		*/
-    AABBNode *GetNext () const {return m_next;}
+	@return AABBNode
+	*/
+	AABBNode *GetNext() const { return m_next; }
 
 	//----------------------------------------------------------------------------------
 	//  Set Methods
 	//----------------------------------------------------------------------------------
 
-		/**
-		@brief  Sets member m_mBBox with the data provided
+	/**
+	@brief Sets the data for the bounding box node
 
-		@param const GLdouble, const GLdouble, const GLdouble, 
-		const GLdouble, const GLdouble, const GLdouble
-		*/
+	@param maxX - The maximum X value for the node
+	@param minX - The minimum X value for the node
+	@param maxY - The maximum Y value for the node
+	@param minY - The minimum Y value for the node
+	@param maxZ - The maximum Z value for the node
+	@param minZ - The minimum Z value for the node
+
+	@return void
+	*/
 	void SetData(const GLdouble maxX, const GLdouble minX,
-				 const GLdouble maxY, const GLdouble minY,
-				 const GLdouble maxZ, const GLdouble minZ);
+		const GLdouble maxY, const GLdouble minY,
+		const GLdouble maxZ, const GLdouble minZ);
 
-    
+	/**
+	@brief Sets the address of the link to the next node in the list
 
-		/**
-		@brief  Sets the member m_next to the value of the parameter.
+	@param *next - The address of the link to the next node
 
-		@param AABBNode (a pointer to thenext node)
-		*/
-    void SetNext (AABBNode *next) {m_next = next;}
+	@return void
+	*/
+	void SetNext(AABBNode *next) { m_next = next; }
 
 private:
-		/// The address of the next node in the list
-    AABBNode *m_next;
+	// The address of the next node in the list
+	AABBNode *m_next;
 
-		/// stores x,y,z co-ordinates
-	struct XYZ 
-	{ 
-		GLdouble x, y, z; 
-	}; 
-		/// stores max and min values of co-ordinates
-	struct BoundingBox 
-	{ 
-		XYZ max; 
-		XYZ min; 
-	}; 
-		/// complex member variable that stores the data of the node
+	// stores x,y,z co-ordinates
+	struct XYZ
+	{
+		GLdouble x, y, z;
+	};
+	// stores max and min values of co-ordinates
+	struct BoundingBox
+	{
+		XYZ max;
+		XYZ min;
+	};
+	// stores above info
 	BoundingBox m_BBox;
 
 	//----------------------------------------------------------------------------------
 
-		/// Privatised copy constructor
-    AABBNode (const AABBNode &newNode) {};
-		///Privatised assignment operator
-    AABBNode &operator = (const AABBNode &newNode) {};
+	// Privatised copy constructor and assignment operator
+	AABBNode(const AABBNode &newNode) {};
+	AABBNode &operator = (const AABBNode &newNode) {};
 };
 
 #endif

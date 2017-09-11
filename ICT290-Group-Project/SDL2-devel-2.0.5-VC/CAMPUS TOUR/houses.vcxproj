@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -14,17 +14,18 @@
     <SccProjectName />
     <SccLocalPath />
     <ProjectGuid>{8A8F1226-7A8E-4FD0-A583-8FCBF8ABBA67}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -51,7 +52,7 @@
     <OutDir>.\Release\</OutDir>
     <IntDir>.\Release\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <LibraryPath>C:\000Uniwork\freeglut-2.8.1\lib\x86\Debug;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Users\Matt\Desktop\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\packages\SDL.1.2.15.16\build\native\lib\Win32\v140\Release;C:\Users\Matt\Desktop\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\packages\SDL.1.2.15.16\build\native\lib\Win32\v140\Release\Application\WithStdioRedirect;C:\Users\Matt\Desktop\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\freeglut-2.8.1\include\GL;C:\Users\Matt\Desktop\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\freeglut-2.8.1\lib\x86\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -92,7 +93,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <InlineFunctionExpansion>Default</InlineFunctionExpansion>
       <StringPooling>true</StringPooling>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -104,6 +105,8 @@
       <PrecompiledHeaderOutputFile>.\Release\houses.pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>.\Release\</ObjectFileName>
       <ProgramDataBaseFileName>.\Release\</ProgramDataBaseFileName>
+      <AdditionalIncludeDirectories>C:\Users\Matt\Desktop\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\packages\SDL.1.2.15.16\build\native\lib\Win32\v140\Release;C:\Users\Matt\Desktop\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\packages\SDL.1.2.15.16\build\native\lib\Win32\v140\Release\Application\WithStdioRedirect;C:\Users\Matt\Desktop\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\freeglut-2.8.1\include\GL;C:\Users\Matt\Desktop\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\freeglut-2.8.1\lib\x86\Debug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Midl>
       <TypeLibraryName>.\Release\houses.tlb</TypeLibraryName>
@@ -120,7 +123,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <SubSystem>Console</SubSystem>
       <OutputFile>.\Release\houses.exe</OutputFile>
-      <AdditionalDependencies>odbc32.lib;odbccp32.lib;glut32.lib;SDL2main.lib;SDL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;freeglut.lib;SDL.lib;sdlmain.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -181,7 +184,19 @@
     <ClInclude Include="SoundTime.h" />
     <ClInclude Include="texturedPolygons.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="packages\SDL.redist.1.2.15.16\build\native\SDL.redist.targets" Condition="Exists('packages\SDL.redist.1.2.15.16\build\native\SDL.redist.targets')" />
+    <Import Project="packages\SDL.1.2.15.16\build\native\SDL.targets" Condition="Exists('packages\SDL.1.2.15.16\build\native\SDL.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\SDL.redist.1.2.15.16\build\native\SDL.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SDL.redist.1.2.15.16\build\native\SDL.redist.targets'))" />
+    <Error Condition="!Exists('packages\SDL.1.2.15.16\build\native\SDL.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\SDL.1.2.15.16\build\native\SDL.targets'))" />
+  </Target>
 </Project>

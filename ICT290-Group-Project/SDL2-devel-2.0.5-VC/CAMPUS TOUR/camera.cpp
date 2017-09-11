@@ -9,7 +9,7 @@
 #include "Camera.h"
 
 #include <math.h>
-#include <glut.h>
+#include <freeglut.h>
 
 //--------------------------------------------------------------------------------------
 // Set initial values
@@ -45,11 +45,11 @@ void Camera::ResetXYZ()
 	m_x = 0.0f;
 	m_y = 1.75f;
 	m_z = 0.0f;
-	
+
 	m_lookX = 0.0f;
 	m_lookY = 0.0f;
 	m_lookZ = -1.0f;
-	
+
 	m_lookXX = 1.0f;
 	m_lookYY = 1.0f;
 	m_lookZZ = 0.0f;
@@ -144,7 +144,7 @@ bool Camera::MoveUDOK()
 bool Camera::RotateLROK()
 {
 	bool tempReturn;
-	if ((m_deltaAngleLR/m_rotateSpeed) < 0 || (m_deltaAngleLR/m_rotateSpeed) > 0)
+	if ((m_deltaAngleLR / m_rotateSpeed) < 0 || (m_deltaAngleLR / m_rotateSpeed) > 0)
 	{
 		tempReturn = true;
 	}
@@ -161,7 +161,7 @@ bool Camera::RotateLROK()
 bool Camera::LookUDOK()
 {
 	bool tempReturn;
-	if ((m_deltaAngleUD/m_rotateSpeed) < 0 || (m_deltaAngleUD/m_rotateSpeed) > 0)
+	if ((m_deltaAngleUD / m_rotateSpeed) < 0 || (m_deltaAngleUD / m_rotateSpeed) > 0)
 	{
 		tempReturn = true;
 	}
@@ -182,8 +182,8 @@ void Camera::MoveFB()
 	m_zLast = m_z;
 
 	// set movement step
-	GLdouble moveZ = (m_deltaMoveFB * (m_lookZ) * m_moveSpeed);
-	GLdouble moveX = (m_deltaMoveFB * (m_lookX) * m_moveSpeed);
+	GLdouble moveZ = (m_deltaMoveFB * (m_lookZ)* m_moveSpeed);
+	GLdouble moveX = (m_deltaMoveFB * (m_lookX)* m_moveSpeed);
 
 	if (m_CollisionDetectionOn)
 	{
@@ -211,7 +211,7 @@ void Camera::MoveFB()
 		SetPlains(moveX, moveZ);
 		// redisplay
 		callGLLookAt();
-	}	
+	}
 }
 
 //--------------------------------------------------------------------------------------
@@ -224,8 +224,8 @@ void Camera::MoveLR()
 	m_xLast = m_x;
 
 	// set movement step
-	GLdouble moveZ = (m_deltaMoveLR * (m_lookZZ) * m_moveSpeed);
-	GLdouble moveX = (m_deltaMoveLR * (m_lookXX) * m_moveSpeed);
+	GLdouble moveZ = (m_deltaMoveLR * (m_lookZZ)* m_moveSpeed);
+	GLdouble moveX = (m_deltaMoveLR * (m_lookXX)* m_moveSpeed);
 
 	if (m_CollisionDetectionOn)
 	{
@@ -263,7 +263,7 @@ void Camera::SetPlains(const int & moveX, const int & moveZ)
 	// store number of plains (stops from looping through linked list each time)
 	if (m_No_Plains == 0) m_No_Plains = m_Plain.GetListSize();
 
-	for (int i = 0;  i < m_No_Plains; i++)
+	for (int i = 0; i < m_No_Plains; i++)
 	{
 		// if camera is positioned on a plain
 		if ((m_z <= m_Plain.GetZend(i)) && (m_z >= m_Plain.GetZstart(i))
@@ -273,7 +273,7 @@ void Camera::SetPlains(const int & moveX, const int & moveZ)
 			if (m_Plain.GetType(i) == 0)
 			{
 				m_y = m_Plain.GetYstart(i);
-				
+
 				if ((m_plainNo != i) && m_plainHeight != m_Plain.GetYstart(i))
 				{
 					stepSound->Play();
@@ -310,7 +310,7 @@ void Camera::SetPlains(const int & moveX, const int & moveZ)
 					m_incrementX = ((m_Plain.GetYend(i) - m_y) / (m_Plain.GetXend(i) - m_x));
 				}
 				m_y += (m_incrementX * moveX);
-			}		
+			}
 		}
 	}
 }
@@ -322,17 +322,17 @@ void Camera::MoveUD()
 {
 	if (m_CollisionDetectionOn)
 	{
-		GLdouble startY = m_y + m_deltaMoveUD * (m_lookYY) * m_moveSpeed * 5.0;
+		GLdouble startY = m_y + m_deltaMoveUD * (m_lookYY)* m_moveSpeed * 5.0;
 
 		if (!(m_colDetect.Collide(m_x + m_lookXX, startY + m_lookYY, m_z + m_lookZZ)))
 		{
-			m_y += m_deltaMoveUD * (m_lookYY) * m_moveSpeed;
+			m_y += m_deltaMoveUD * (m_lookYY)* m_moveSpeed;
 			callGLLookAt();
 		}
 	}
 	else
 	{
-		m_y += m_deltaMoveUD * (m_lookYY) * m_moveSpeed;
+		m_y += m_deltaMoveUD * (m_lookYY)* m_moveSpeed;
 		callGLLookAt();
 	}
 }
@@ -345,8 +345,8 @@ void Camera::RotateLR()
 	m_rotateAngleLR += m_deltaAngleLR;
 	m_lookX = sin(m_rotateAngleLR);
 	m_lookZ = -cos(m_rotateAngleLR);
-	m_lookXX = sin(m_rotateAngleLR + (float) PI/2.0);
-	m_lookZZ = -cos(m_rotateAngleLR + (float) PI/2.0);
+	m_lookXX = sin(m_rotateAngleLR + (float)PI / 2.0);
+	m_lookZZ = -cos(m_rotateAngleLR + (float)PI / 2.0);
 	callGLLookAt();
 }
 
@@ -363,11 +363,11 @@ void Camera::LookUD()
 //----------------------------------------------------------------------------------------
 // Positions camera at co-ordinates of parameters
 //----------------------------------------------------------------------------------------
-void Camera::Position (GLdouble const & tempX, GLdouble const & tempY,
-			           GLdouble const & tempZ, GLdouble const & tempAngle)
+void Camera::Position(GLdouble const & tempX, GLdouble const & tempY,
+	GLdouble const & tempZ, GLdouble const & tempAngle)
 {
 	ResetXYZ();
-	
+
 	m_x = tempX;
 	m_y = tempY;
 	m_z = tempZ;
@@ -376,8 +376,8 @@ void Camera::Position (GLdouble const & tempX, GLdouble const & tempY,
 	m_rotateAngleLR = tempAngle * (PI / 180);
 	m_lookX = sin(m_rotateAngleLR);
 	m_lookZ = -cos(m_rotateAngleLR);
-	m_lookXX = sin(m_rotateAngleLR + (float) PI/2.0);
-	m_lookZZ = -cos(m_rotateAngleLR + (float) PI/2.0);
+	m_lookXX = sin(m_rotateAngleLR + (float)PI / 2.0);
+	m_lookZZ = -cos(m_rotateAngleLR + (float)PI / 2.0);
 	m_rotateAngleUD = 0.0;
 	m_deltaAngleUD = 0.0;
 
@@ -404,44 +404,44 @@ void Camera::CheckCamera()
 void Camera::callGLLookAt()
 {
 	glLoadIdentity();
-	gluLookAt(m_x, m_y, m_z, 
-		      m_x + m_lookX, m_y + m_lookY, m_z + m_lookZ,
-			  0.0f, 1.0f, 0.0f);
+	gluLookAt(m_x, m_y, m_z,
+		m_x + m_lookX, m_y + m_lookY, m_z + m_lookZ,
+		0.0f, 1.0f, 0.0f);
 }
 
 //--------------------------------------------------------------------------------------
 // Display map of world
 //----------------------------------------------------------------------------------------
 
-void Camera::DisplayMap(const int & screenWidth, const int & screenHeight, 
-		                const GLuint & tempImage)
+void Camera::DisplayMap(const int & screenWidth, const int & screenHeight,
+	const GLuint & tempImage)
 {
-	m_map.DisplayMap(screenWidth, screenHeight, GetLR (), GetFB (), tempImage);
+	m_map.DisplayMap(screenWidth, screenHeight, GetLR(), GetFB(), tempImage);
 }
 
 //--------------------------------------------------------------------------------------
 // Display welcome or exit page
 //----------------------------------------------------------------------------------------
 
-void Camera::DisplayWelcomeScreen(const int & screenWidth, const int & screenHeight, 
-		                const int & tempExit, const GLuint & tempImage)
+void Camera::DisplayWelcomeScreen(const int & screenWidth, const int & screenHeight,
+	const int & tempExit, const GLuint & tempImage)
 {
-	 m_map.DisplayWelcomeScreen(screenWidth, screenHeight, tempExit, tempImage);
+	m_map.DisplayWelcomeScreen(screenWidth, screenHeight, tempExit, tempImage);
 }
 
 //--------------------------------------------------------------------------------------
 // Display welcome or exit page
 //----------------------------------------------------------------------------------------
 
-void Camera::DisplayNoExit(const int & screenWidth, const int & screenHeight, 
-		                   const GLuint & tempImage)
+void Camera::DisplayNoExit(const int & screenWidth, const int & screenHeight,
+	const GLuint & tempImage)
 {
-	 m_map.DisplayNoExit(screenWidth, screenHeight, tempImage);
+	m_map.DisplayNoExit(screenWidth, screenHeight, tempImage);
 }
 
 //----------------------------------------------------------------------------------------
 
-void Camera::SetWorldCoordinates (const GLdouble &tempX, const GLdouble &tempZ)
+void Camera::SetWorldCoordinates(const GLdouble &tempX, const GLdouble &tempZ)
 {
 	m_colDetect.SetWorldX(tempX);
 	m_colDetect.SetWorldZ(tempZ);
@@ -449,10 +449,10 @@ void Camera::SetWorldCoordinates (const GLdouble &tempX, const GLdouble &tempZ)
 
 //----------------------------------------------------------------------------------------
 
-void Camera::SetPlains (const int tempType,
-				        const GLdouble tempXs, const GLdouble tempXe,
-				        const GLdouble tempYs, const GLdouble tempYe,
-				        const GLdouble tempZs, const GLdouble tempZe)
+void Camera::SetPlains(const int tempType,
+	const GLdouble tempXs, const GLdouble tempXe,
+	const GLdouble tempYs, const GLdouble tempYe,
+	const GLdouble tempZs, const GLdouble tempZe)
 {
 	m_Plain.AddToStart(tempType, tempXs, tempXe, tempYs, tempYe, tempZs, tempZe);
 }
@@ -474,7 +474,7 @@ void Camera::CheckSteps()
 //----------------------------------------------------------------------------------------
 
 void Camera::ClimbSteps(GLdouble stepStart, GLdouble stepFinish, GLdouble stepHeight, GLdouble stepWidth, int noSteps)
-{	
+{
 	GLdouble tempUpSteps;
 	if ((m_z < stepStart) && (m_z > stepFinish))
 	{
@@ -492,18 +492,18 @@ void Camera::ClimbSteps(GLdouble stepStart, GLdouble stepFinish, GLdouble stepHe
 
 		for (int i = 0; i < noSteps + 1; i++)
 		{
-			if ((m_z < (stepStart - (i * stepWidth) + stepWidth/2) - tempUpSteps)
-				&& (m_z > (stepStart - (i * stepWidth) - stepWidth/2) - tempUpSteps))
+			if ((m_z < (stepStart - (i * stepWidth) + stepWidth / 2) - tempUpSteps)
+				&& (m_z >(stepStart - (i * stepWidth) - stepWidth / 2) - tempUpSteps))
 			{
-				if (stepped== false) 
-				{	
+				if (stepped == false)
+				{
 					m_z = stepStart - (stepWidth * i) + (m_direction * stepWidth) - tempUpSteps;
 					m_y += stepHeight * m_direction;
-				
+
 					stepped = true;
 					DirectionFB(0);
 					DirectionLR(0);
-				}			
+				}
 			}
 		}
 	}

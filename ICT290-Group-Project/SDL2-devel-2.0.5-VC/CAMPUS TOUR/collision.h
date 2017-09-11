@@ -14,6 +14,19 @@
 
 //--------------------------------------------------------------------------------------
 
+/**
+@class Collision
+@brief Handles the collisions and bounding boxes
+
+@author Shay Leary
+@version 01
+@date MAR05
+
+@author Team CodeJunkies
+@version 02
+@date 05SEP17
+
+*/
 class Collision
 {
 public:
@@ -24,41 +37,176 @@ public:
 	//----------------------------------------------------------------------------------
 	//  Set Methods
 	//----------------------------------------------------------------------------------
-	// sets initial co-ordinates of bounding boxes (these set the co-ords is AABB, the array,
-	// the values for the list are copied from the array using CreateLinkedList).
-	void SetAABBMaxX(const int & tempIndex, const double &tempX) {m_AABB.SetMaxX(tempIndex, tempX);}
-	void SetAABBMinX(const int & tempIndex, const double &tempX) {m_AABB.SetMinX(tempIndex, tempX);}
-	void SetAABBMaxY(const int & tempIndex, const double &tempY) {m_AABB.SetMaxY(tempIndex, tempY);}
-	void SetAABBMinY(const int & tempIndex, const double &tempY) {m_AABB.SetMinY(tempIndex, tempY);}
-	void SetAABBMaxZ(const int & tempIndex, const double &tempZ) {m_AABB.SetMaxZ(tempIndex, tempZ);}
-	void SetAABBMinZ(const int & tempIndex, const double &tempZ) {m_AABB.SetMinZ(tempIndex, tempZ);}
 
-	// sets the actual world co-ordinates
-	void SetWorldX(const double &tempX) {m_worldSizeX = tempX;}
-	void SetWorldZ(const double &tempZ) {m_worldSizeZ = tempZ;}
+	/**
+	@brief Sets the initial maximum X value for the bounding box
 
-	// set number of bounding boxes
-	void SetNoBoundingBoxes(const int & tempSize) {m_AABB.SetNoBoundingBoxes(tempSize);}
+	@param tempIndex - The index number of the bounding box
+	@param tempX - The maximum X value for the bounding box
+
+	@return void
+	*/
+	void SetAABBMaxX(const int & tempIndex, const double &tempX) { m_AABB.SetMaxX(tempIndex, tempX); }
+
+	/**
+	@brief Sets the initial minimum X value for the bounding box
+
+	@param tempIndex - The index number of the bounding box
+	@param tempX - The minimum X value for the bounding box
+
+	@return void
+	*/
+	void SetAABBMinX(const int & tempIndex, const double &tempX) { m_AABB.SetMinX(tempIndex, tempX); }
+
+	/**
+	@brief Sets the initial maximum Y value for the bounding box
+
+	@param tempIndex - The index number of the bounding box
+	@param tempX - The maximum Y value for the bounding box
+
+	@return void
+	*/
+	void SetAABBMaxY(const int & tempIndex, const double &tempY) { m_AABB.SetMaxY(tempIndex, tempY); }
+
+	/**
+	@brief Sets the initial minimum Y value for the bounding box
+
+	@param tempIndex - The index number of the bounding box
+	@param tempX - The minimum Y value for the bounding box
+
+	@return void
+	*/
+	void SetAABBMinY(const int & tempIndex, const double &tempY) { m_AABB.SetMinY(tempIndex, tempY); }
+
+	/**
+	@brief Sets the initial maximum Z value for the bounding box
+
+	@param tempIndex - The index number of the bounding box
+	@param tempX - The maximum Z value for the bounding box
+
+	@return void
+	*/
+	void SetAABBMaxZ(const int & tempIndex, const double &tempZ) { m_AABB.SetMaxZ(tempIndex, tempZ); }
+
+	/**
+	@brief Sets the initial minimum Z value for the bounding box
+
+	@param tempIndex - The index number of the bounding box
+	@param tempX - The minimum Z value for the bounding box
+
+	@return void
+	*/
+	void SetAABBMinZ(const int & tempIndex, const double &tempZ) { m_AABB.SetMinZ(tempIndex, tempZ); }
+
+	/**
+	@brief Sets the size of the world on the X axis
+
+	@param tempX - The size of the X axis
+
+	@return void
+	*/
+	void SetWorldX(const double &tempX) { m_worldSizeX = tempX; }
+
+	/**
+	@brief Sets the size of the world on the Z axis
+
+	@param tempZ - The size of the Z axis
+
+	@return void
+	*/
+	void SetWorldZ(const double &tempZ) { m_worldSizeZ = tempZ; }
+
+	/**
+	@brief Sets the number of bounding boxes
+
+	@param tempSize - The number of bounding boxes
+
+	@return void
+	*/
+	void SetNoBoundingBoxes(const int & tempSize) { m_AABB.SetNoBoundingBoxes(tempSize); }
 
 	//----------------------------------------------------------------------------------
 	//  Returns Methods
 	//----------------------------------------------------------------------------------
-	// returns co-ordinates of bounding boxes
-	double GetAABBMaxX (const int & tempIndex) {return m_AABB.GetMaxX (tempIndex);}
-	double GetAABBMinX (const int & tempIndex) {return m_AABB.GetMinX (tempIndex);}
-	double GetAABBMaxY (const int & tempIndex) {return m_AABB.GetMaxY (tempIndex);}
-	double GetAABBMinY (const int & tempIndex) {return m_AABB.GetMinY (tempIndex);}
-	double GetAABBMaxZ (const int & tempIndex) {return m_AABB.GetMaxZ (tempIndex);}
-	double GetAABBMinZ (const int & tempIndex) {return m_AABB.GetMinZ (tempIndex);}
 
-	// returns number of bounding boxes
-	int GetNoBoundingBoxes() {return m_AABB.GetNoBoundingBoxes();}
 
-	// returns TRUE if a collsion occurred
-	bool Collide (double endX, double endY, double endZ);
+	/**
+	@brief Returns the maximum X value for the bounding box
 
-	// reads the BB info from AABB (dynamic array) and creates a Linked List
-	// containing BB data
+	@param tempIndex - The index number of the bounding box
+
+	@return double
+	*/
+	double GetAABBMaxX(const int & tempIndex) { return m_AABB.GetMaxX(tempIndex); }
+
+	/**
+	@brief Returns the minimum X value for the bounding box
+
+	@param tempIndex - The index number of the bounding box
+
+	@return double
+	*/
+	double GetAABBMinX(const int & tempIndex) { return m_AABB.GetMinX(tempIndex); }
+
+	/**
+	@brief Returns the maximum Y value for the bounding box
+
+	@param tempIndex - The index number of the bounding box
+
+	@return double
+	*/
+	double GetAABBMaxY(const int & tempIndex) { return m_AABB.GetMaxY(tempIndex); }
+
+	/**
+	@brief Returns the minimum Y value for the bounding box
+
+	@param tempIndex - The index number of the bounding box
+
+	@return double
+	*/
+	double GetAABBMinY(const int & tempIndex) { return m_AABB.GetMinY(tempIndex); }
+
+	/**
+	@brief Returns the maximum Z value for the bounding box
+
+	@param tempIndex - The index number of the bounding box
+
+	@return double
+	*/
+	double GetAABBMaxZ(const int & tempIndex) { return m_AABB.GetMaxZ(tempIndex); }
+
+	/**
+	@brief Returns the minimum Z value for the bounding box
+
+	@param tempIndex - The index number of the bounding box
+
+	@return double
+	*/
+	double GetAABBMinZ(const int & tempIndex) { return m_AABB.GetMinZ(tempIndex); }
+
+	/**
+	@brief Returns the number of bounding boxes
+
+	@return int
+	*/
+	int GetNoBoundingBoxes() { return m_AABB.GetNoBoundingBoxes(); }
+
+	/**
+	@brief Returns true if a collision has occured
+
+	@param endX - Value of the x axis
+	@param endY - Value of the Y axis
+	@param endZ - Value of the Z axis
+
+	@return bool
+	*/
+	bool Collide(double endX, double endY, double endZ);
+
+	/**
+	@brief Read the bounding box information from the dynamic array, and creates a linked list
+
+	@return void
+	*/
 	void CreateLinkedList();
 
 private:
@@ -76,14 +224,23 @@ private:
 	double m_worldSizeX;
 	double m_worldSizeZ;
 
-	// checks if collsion occurred (called from Collide)
+	/**
+	@brief Checks if a collision has occured
+
+	@param index - The quadrant number of the world
+	@param endX - The X value 
+	@param endY - The Y value
+	@param endZ - The Z value
+
+	@return bool
+	*/
 	bool CheckCollision(int index, double endX, double endY, double endZ);
 
 	//----------------------------------------------------------------------------------
 
-    // Privatised copy constructor and assignment operator
-    Collision (const Collision &coll) {};
-    Collision &operator = (const Collision &coll) {};
+	// Privatised copy constructor and assignment operator
+	Collision(const Collision &coll) {};
+	Collision &operator = (const Collision &coll) {};
 };
 
 #endif

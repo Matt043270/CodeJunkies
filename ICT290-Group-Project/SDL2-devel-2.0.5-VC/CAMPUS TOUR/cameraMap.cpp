@@ -13,32 +13,32 @@
 //--------------------------------------------------------------------------------------
 
 void CameraMap::DisplayMap(const int & screenWidth, const int & screenHeight,
-				           const GLdouble &xPos, const GLdouble & zPos, const GLuint & tempImage)
+	const GLdouble &xPos, const GLdouble & zPos, const GLuint & tempImage)
 {
-	GLdouble tempX = xPos/163.0 - 2096/163;
-	GLdouble tempZ = zPos/164.0 - 4688/164;
+	GLdouble tempX = xPos / 163.0 - 2096 / 163;
+	GLdouble tempZ = zPos / 164.0 - 4688 / 164;
 	glPushMatrix();
 	glMatrixMode(GL_PROJECTION);
 	glPushMatrix();
 	glLoadIdentity();
 	gluOrtho2D(0, screenWidth, 0, screenHeight);
 	glScalef(1, -1, 1);
-	
+
 	// mover the origin from the bottom left corner
 	// to the upper left corner
 	glTranslatef(0, -screenHeight, 0);
-	
+
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
 	// display the cursor of the camera position
-	glBegin(GL_QUADS);		
-		glVertex3f(219.0 - tempX - 2.0, 256.0 - tempZ - 2.0, 0.0);
-		glVertex3f(219.0 - tempX + 2.0, 256.0 - tempZ - 2.0,  0.0);
-		glVertex3f(219.0 - tempX + 2.0, 256.0 - tempZ + 2.0,  0.0);
-		glVertex3f(219.0 - tempX - 2.0, 256.0 - tempZ + 2.0, 0.0);
+	glBegin(GL_QUADS);
+	glVertex3f(219.0 - tempX - 2.0, 256.0 - tempZ - 2.0, 0.0);
+	glVertex3f(219.0 - tempX + 2.0, 256.0 - tempZ - 2.0, 0.0);
+	glVertex3f(219.0 - tempX + 2.0, 256.0 - tempZ + 2.0, 0.0);
+	glVertex3f(219.0 - tempX - 2.0, 256.0 - tempZ + 2.0, 0.0);
 	glEnd();
-	
+
 	// display map
 	glBindTexture(GL_TEXTURE_2D, tempImage);
 	glCallList(448);
@@ -53,8 +53,8 @@ void CameraMap::DisplayMap(const int & screenWidth, const int & screenHeight,
 //--------------------------------------------------------------------------------------
 //  Displays a welcome or exit screen
 //--------------------------------------------------------------------------------------
-void CameraMap::DisplayWelcomeScreen (const int & screenWidth, const int & screenHeight, 
-									  const int & tempExit, const GLuint & tempImage)
+void CameraMap::DisplayWelcomeScreen(const int & screenWidth, const int & screenHeight,
+	const int & tempExit, const GLuint & tempImage)
 {
 	glPushMatrix();
 	glMatrixMode(GL_PROJECTION);
@@ -62,11 +62,11 @@ void CameraMap::DisplayWelcomeScreen (const int & screenWidth, const int & scree
 	glLoadIdentity();
 	gluOrtho2D(0, screenWidth, 0, screenHeight);
 	glScalef(1, -1, 1);
-	
+
 	// move to centre of screen
-	glTranslatef(screenWidth/2 -256.0, -screenHeight/2 -256.0, 0);
+	glTranslatef(screenWidth / 2 - 256.0, -screenHeight / 2 - 256.0, 0);
 	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();	
+	glLoadIdentity();
 	// display exit screen or welcome screen
 	if (tempExit == 1)
 	{
@@ -85,8 +85,8 @@ void CameraMap::DisplayWelcomeScreen (const int & screenWidth, const int & scree
 	glPopMatrix();
 }
 
-void CameraMap::DisplayNoExit (const int & screenWidth, const int & screenHeight, 
-							   const GLuint & tempImage)
+void CameraMap::DisplayNoExit(const int & screenWidth, const int & screenHeight,
+	const GLuint & tempImage)
 {
 	glPushMatrix();
 	glMatrixMode(GL_PROJECTION);
@@ -94,11 +94,11 @@ void CameraMap::DisplayNoExit (const int & screenWidth, const int & screenHeight
 	glLoadIdentity();
 	gluOrtho2D(0, screenWidth, 0, screenHeight);
 	glScalef(1, -1, 1);
-	
+
 	// move to centre of screen
-	glTranslatef(screenWidth/2 -128.0, -screenHeight/2 -32.0, 0);
+	glTranslatef(screenWidth / 2 - 128.0, -screenHeight / 2 - 32.0, 0);
 	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();	
+	glLoadIdentity();
 	// display sign
 	glBindTexture(GL_TEXTURE_2D, tempImage);
 	// display image
