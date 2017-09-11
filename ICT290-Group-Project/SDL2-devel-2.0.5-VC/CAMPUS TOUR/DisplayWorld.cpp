@@ -56,7 +56,7 @@ bool DisplayWorld::DrawWorld()
 								// 455-459
 
 	CreateTextures();
-	
+
 	return true;
 }
 

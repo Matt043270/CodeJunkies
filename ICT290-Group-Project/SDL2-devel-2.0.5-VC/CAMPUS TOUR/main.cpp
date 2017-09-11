@@ -17,9 +17,6 @@
 GLdouble movementSpeed = 10.0;
 GLdouble rotationSpeed = 0.005;
 
-
-
-
 //--------------------------------------------------------------------------------------
 
 GLdouble stepIncrement;
@@ -88,8 +85,8 @@ int main(int argc, char **argv)
 {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
-	glutInitWindowPosition(100,100);
-	glutInitWindowSize(800,500);
+	glutInitWindowPosition(100, 100);
+	glutInitWindowSize(800, 500);
 	glutCreateWindow("Murdoch University Campus Tour");
 
 	myinit();
@@ -97,13 +94,13 @@ int main(int argc, char **argv)
 	glutIgnoreKeyRepeat(1);
 	glutSpecialFunc(movementKeys);
 	glutSpecialUpFunc(releaseKey);
-	glutKeyboardUpFunc (releaseKeys);
+	glutKeyboardUpFunc(releaseKeys);
 	glutKeyboardFunc(keys);
 
 	glutDisplayFunc(Display);
 	glutIdleFunc(Display);
 	glutMouseFunc(Mouse);
-	
+
 	// ONLY USE IF REQUIRE MOUSE MOVEMENT
 	//glutPassiveMotionFunc(mouseMove);
 	//ShowCursor(FALSE);
@@ -119,14 +116,14 @@ int main(int argc, char **argv)
 void myinit()
 {
 	// set background (sky colour)
-	glClearColor(97.0/255.0, 140.0/255.0, 185.0/255.0, 1.0);
-	
+	glClearColor(97.0 / 255.0, 140.0 / 255.0, 185.0 / 255.0, 1.0);
+
 	// set perpsective
-	gluLookAt(0.0, 1.75, 0.0, 
-		      0.0, 1.75, -1,
-			  0.0f,1.0f,0.0f);
-	
-	
+	gluLookAt(0.0, 1.75, 0.0,
+		0.0, 1.75, -1,
+		0.0f, 1.0f, 0.0f);
+
+
 
 	// set the world co-ordinates (used to set quadrants for bounding boxes)
 	cam.SetWorldCoordinates(36000.0, 43200.0);
@@ -135,19 +132,19 @@ void myinit()
 	// set number of bounding boxes required
 	cam.SetNoBoundingBoxes(19);
 	// set starting position of user
-	cam.Position(32720.0, 9536.0,	
-				 4800.0, 180.0);
-	
-	CreatePlains();	
-	
+	cam.Position(32720.0, 9536.0,
+		4800.0, 180.0);
+
+	CreatePlains();
+
 	// creates bounding boxes and places in array
 	CreateBoundingBoxes();
 	// copies bounding boxes from array to linked lists (one fopr each quadrant)
 	cam.InitiateBoundingBoxes();
-	
+
 	// load texture images and create display lists
 	displayWorld.DrawWorld();
-	
+
 }
 
 //--------------------------------------------------------------------------------------
@@ -157,33 +154,33 @@ void Display()
 {
 	// check for movement
 	cam.CheckCamera();
-	
+
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	// DISPLAY TEXTURES
 	//enable texture mapping
-	glEnable (GL_TEXTURE_2D);
-	glPushMatrix();	
-		// displays the welcome screen
-		if (DisplayWelcome) cam.DisplayWelcomeScreen (width, height, 1, displayWorld.getWelcomeTex());	
-		// displays the exit screen
-		if (DisplayExit) cam.DisplayWelcomeScreen (width, height, 0, displayWorld.getWelcomeTex() );
-		// displays the map
-		if (DisplayMap) cam.DisplayMap(width, height, displayWorld.getMapTex());
-		// display no exit sign (position check should really be in an object, but didn't have time)
-		if ((cam.GetLR() > 35500.0) && (cam.GetFB() < 25344.0) ||
-			(cam.GetLR() > 34100.0) && (cam.GetFB() > 41127.0))
-		{
-			cam.DisplayNoExit(width, height,displayWorld.getNoExitTex());
-		}
-				// set the movement and rotation speed according to frame count
-		IncrementFrameCount();
-		cam.SetMoveSpeed (stepIncrement);
-		cam.SetRotateSpeed (angleIncrement);
-		// display images
-		displayWorld.RenderWorld(lightsOn);
+	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+	// displays the welcome screen
+	if (DisplayWelcome) cam.DisplayWelcomeScreen(width, height, 1, displayWorld.getWelcomeTex());
+	// displays the exit screen
+	if (DisplayExit) cam.DisplayWelcomeScreen(width, height, 0, displayWorld.getWelcomeTex());
+	// displays the map
+	if (DisplayMap) cam.DisplayMap(width, height, displayWorld.getMapTex());
+	// display no exit sign (position check should really be in an object, but didn't have time)
+	/*if ((cam.GetLR() > 35500.0) && (cam.GetFB() < 25344.0) ||
+	(cam.GetLR() > 34100.0) && (cam.GetFB() > 41127.0))
+	{
+	cam.DisplayNoExit(width, height, displayWorld.getNoExitTex());
+	}*/
+	// set the movement and rotation speed according to frame count
+	IncrementFrameCount();
+	cam.SetMoveSpeed(stepIncrement);
+	cam.SetRotateSpeed(angleIncrement);
+	// display images
+	displayWorld.RenderWorld(lightsOn);
 	glPopMatrix();
-	glDisable (GL_TEXTURE_2D); 
+	glDisable(GL_TEXTURE_2D);
 
 	// clear buffers
 	glFlush();
@@ -204,7 +201,7 @@ void reshape(int w, int h)
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glViewport(0, 0, w, h);
-	gluPerspective(45,ratio,1,250000);	
+	gluPerspective(45, ratio, 1, 250000);
 	glMatrixMode(GL_MODELVIEW);
 }
 
@@ -215,21 +212,21 @@ void movementKeys(int key, int x, int y)
 {
 	switch (key)
 	{
-		case GLUT_KEY_LEFT :
-			cam.DirectionRotateLR(-1);
-			break;
+	case GLUT_KEY_LEFT:
+		cam.DirectionRotateLR(-1);
+		break;
 
-		case GLUT_KEY_RIGHT : 
-			cam.DirectionRotateLR(1);
-			break;
+	case GLUT_KEY_RIGHT:
+		cam.DirectionRotateLR(1);
+		break;
 
-		case GLUT_KEY_UP : 
-			cam.DirectionFB(1);
-			break;
+	case GLUT_KEY_UP:
+		cam.DirectionFB(1);
+		break;
 
-		case GLUT_KEY_DOWN : 
-			cam.DirectionFB(-1);
-			break;
+	case GLUT_KEY_DOWN:
+		cam.DirectionFB(-1);
+		break;
 	}
 }
 
@@ -239,14 +236,14 @@ void releaseKey(int key, int x, int y)
 	switch (key)
 	{
 		// rotate left or right
-		case GLUT_KEY_LEFT : 
-		case GLUT_KEY_RIGHT : 
-			cam.DirectionRotateLR(0);			
+	case GLUT_KEY_LEFT:
+	case GLUT_KEY_RIGHT:
+		cam.DirectionRotateLR(0);
 		break;
 		// move backwards or forwards
-		case GLUT_KEY_UP : 
-		case GLUT_KEY_DOWN : 
-			cam.DirectionFB(0);
+	case GLUT_KEY_UP:
+	case GLUT_KEY_DOWN:
+		cam.DirectionFB(0);
 		break;
 	}
 }
@@ -258,94 +255,94 @@ void keys(unsigned char key, int x, int y)
 	switch (key)
 	{
 		// step left
-		case 'Z':
-		case 'z':
-			cam.DirectionLR(-1);
-			break;
+	case 'Z':
+	case 'z':
+		cam.DirectionLR(-1);
+		break;
 		// step right
-		case 'X':
-		case 'x':
-			cam.DirectionLR(1);
+	case 'X':
+	case 'x':
+		cam.DirectionLR(1);
 		break;
 		// look up
-		case 'Q':
-		case 'q':
-			cam.DirectionLookUD(1);
-			break;
+	case 'Q':
+	case 'q':
+		cam.DirectionLookUD(1);
+		break;
 		// look down
-		case 'A':
-		case 'a':
-			cam.DirectionLookUD(-1);
+	case 'A':
+	case 'a':
+		cam.DirectionLookUD(-1);
 		break;
 		// display campus map
-		case 'm':
-		case 'M':
+	case 'm':
+	case 'M':
+	{
+		if (DisplayMap)
 		{
-			if (DisplayMap)
-			{
-				DisplayMap = false;
-			}
-			else
-			{
-				DisplayMap = true;
-			}
+			DisplayMap = false;
 		}
-		break;
-		// exit tour (escape key)
-		case 27:
-			{
-				cam.SetRotateSpeed (0.0f);
-				cam.SetMoveSpeed (0.0f);
-				DisplayExit = true;
-			}
-		break;
-		// display welcome page (space key)
-		case ' ':
-			{
-				if (DisplayWelcome)
-				{
-					cam.SetRotateSpeed (rotationSpeed);
-					cam.SetMoveSpeed (movementSpeed);
-					DisplayWelcome = false;
-				}
-				else
-				{
-					cam.SetRotateSpeed (0.0f);
-					cam.SetMoveSpeed (0.0f);
-					DisplayWelcome = true;
-				}
-			}
-		break;
-		// display light fittings
-		case 'l':
-		case 'L':
+		else
 		{
-			if (lightsOn)
-			{
-				lightsOn = false;
-			}
-			else
-			{
-				lightsOn = true;
-			}
+			DisplayMap = true;
 		}
-		break;
-		
-		case 'P':
-		case 'p':
+	}
+	break;
+	// exit tour (escape key)
+	case 27:
+	{
+		cam.SetRotateSpeed(0.0f);
+		cam.SetMoveSpeed(0.0f);
+		DisplayExit = true;
+	}
+	break;
+	// display welcome page (space key)
+	case ' ':
+	{
+		if (DisplayWelcome)
 		{
-			// Display ECL Block
-			if (displayECL)
-			{
-				displayECL = false;
-			}
-			else
-			{
-				displayECL = true;
-			}
+			cam.SetRotateSpeed(rotationSpeed);
+			cam.SetMoveSpeed(movementSpeed);
+			DisplayWelcome = false;
 		}
-		break;
-		
+		else
+		{
+			cam.SetRotateSpeed(0.0f);
+			cam.SetMoveSpeed(0.0f);
+			DisplayWelcome = true;
+		}
+	}
+	break;
+	// display light fittings
+	case 'l':
+	case 'L':
+	{
+		if (lightsOn)
+		{
+			lightsOn = false;
+		}
+		else
+		{
+			lightsOn = true;
+		}
+	}
+	break;
+
+	case 'P':
+	case 'p':
+	{
+		// Display ECL Block
+		if (displayECL)
+		{
+			displayECL = false;
+		}
+		else
+		{
+			displayECL = true;
+		}
+	}
+	break;
+
 	}
 }
 
@@ -355,18 +352,18 @@ void releaseKeys(unsigned char key, int x, int y)
 	switch (key)
 	{
 		// step left or right
-		case 'x' :
-		case 'X' :
-		case 'z' :
-		case 'Z' :
-			cam.DirectionLR(0);
+	case 'x':
+	case 'X':
+	case 'z':
+	case 'Z':
+		cam.DirectionLR(0);
 		break;
 		// look left up or down
-		case 'a' :
-		case 'A' :
-		case 'q' :
-		case 'Q' :
-			cam.DirectionLookUD(0);
+	case 'a':
+	case 'A':
+	case 'q':
+	case 'Q':
+		cam.DirectionLookUD(0);
 		break;
 	}
 }
@@ -379,13 +376,13 @@ void Mouse(int button, int state, int x, int y)
 	// exit tour if clicked on exit splash screen
 	if ((button == GLUT_LEFT_BUTTON) && (state == GLUT_DOWN))
 	{
-		if ((DisplayExit) && (x <= width/2.0 + 256.0) && (x >= width/2.0 - 256.0)
-			&& (y <= height/2.0 + 256.0) && (y >= height/2.0 - 256.0))
+		if ((DisplayExit) && (x <= width / 2.0 + 256.0) && (x >= width / 2.0 - 256.0)
+			&& (y <= height / 2.0 + 256.0) && (y >= height / 2.0 - 256.0))
 		{
 			displayWorld.deleteImageFromMemory();
 			exit(1);
 		}
-  	 }
+	}
 }
 
 //--------------------------------------------------------------------------------------
@@ -394,39 +391,39 @@ void Mouse(int button, int state, int x, int y)
 //--------------------------------------------------------------------------------------
 void mouseMove(int x, int y)
 {
-		if (x < 0)
-			cam.DirectionRotateLR(0);
-		else if (x > width)
-			cam.DirectionRotateLR(0);
-		else if (x > width/2.0)
-		{
-			cam.DirectionRotateLR(1);
-			Display();
-			glutWarpPointer(width/2.0,height/2.0);
-		}
-		else if (x < width/2.0)
-		{
-			cam.DirectionRotateLR(-1);
-			Display();
-			glutWarpPointer(width/2.0,height/2.0);
-		}
-		else
-			cam.DirectionRotateLR(0);
-		if (y < 0 || y > height)
-			cam.DirectionLookUD(0);
+	if (x < 0)
+		cam.DirectionRotateLR(0);
+	else if (x > width)
+		cam.DirectionRotateLR(0);
+	else if (x > width / 2.0)
+	{
+		cam.DirectionRotateLR(1);
+		Display();
+		glutWarpPointer(width / 2.0, height / 2.0);
+	}
+	else if (x < width / 2.0)
+	{
+		cam.DirectionRotateLR(-1);
+		Display();
+		glutWarpPointer(width / 2.0, height / 2.0);
+	}
+	else
+		cam.DirectionRotateLR(0);
+	if (y < 0 || y > height)
+		cam.DirectionLookUD(0);
 
-		else if (y > height/2.0) {
-			cam.DirectionLookUD(-1);
-			Display();
-			glutWarpPointer(width/2.0,height/2.0);
-		}
-		else if (y < height/2.0) {
-			cam.DirectionLookUD(1);
-			Display();
-			glutWarpPointer(width/2.0,height/2.0);
-		}
-		else
-			cam.DirectionLookUD(0);
+	else if (y > height / 2.0) {
+		cam.DirectionLookUD(-1);
+		Display();
+		glutWarpPointer(width / 2.0, height / 2.0);
+	}
+	else if (y < height / 2.0) {
+		cam.DirectionLookUD(1);
+		Display();
+		glutWarpPointer(width / 2.0, height / 2.0);
+	}
+	else
+		cam.DirectionLookUD(0);
 }
 
 //--------------------------------------------------------------------------------------
@@ -481,21 +478,22 @@ void CreateBoundingBoxes()
 	cam.SetAABBMinX(7, 34704.0);
 	cam.SetAABBMaxZ(7, 25344.0);
 	cam.SetAABBMinZ(7, 24996.0);
-		
+
 	// bottom of steps
 	cam.SetAABBMaxX(8, 33808.0);
 	cam.SetAABBMinX(8, 0.0);
 	cam.SetAABBMaxZ(8, 4688.0);
 	cam.SetAABBMinZ(8, 0.0);
 
-	// end of phy sci block exit (top of steps)
-	cam.SetAABBMaxX(9, 35879.0);
-	cam.SetAABBMinX(9, 34320.0);
-	cam.SetAABBMaxZ(9, 43056.0);
-	cam.SetAABBMinZ(9, 41127.0);
+	//// end of phy sci block exit (top of steps)
+	//cam.SetAABBMaxX(9, 35879.0);
+	//cam.SetAABBMinX(9, 34320.0);
+	//cam.SetAABBMaxZ(9, 43056.0);
+	//cam.SetAABBMinZ(9, 41127.0);
 
 	// library end panel
-	cam.SetAABBMaxX(10, 34320.0);
+	//cam.SetAABBMaxX(10, 34320.0);
+	cam.SetAABBMaxX(10, 35879.0);
 	cam.SetAABBMinX(10, 6514.0);
 	cam.SetAABBMaxZ(10, 50000.0);
 	cam.SetAABBMinZ(10, 43036.0);
@@ -541,43 +539,43 @@ void CreateBoundingBoxes()
 // Set up co-ordinates of different plains
 //--------------------------------------------------------------------------------------
 void CreatePlains()
-{	
+{
 	// grass slope
-	cam.SetPlains (ZY_PLAIN, 4848.0 ,31568.0 ,9536.0, 10450.0 ,6200.0, 10000.0);
+	cam.SetPlains(ZY_PLAIN, 4848.0, 31568.0, 9536.0, 10450.0, 6200.0, 10000.0);
 
 	// flat land (pavement and grass)
-	cam.SetPlains (FLAT_PLAIN, 0.0, 36000.0 , 10450.0, 10450.0, 10000.0, 17000.0);
-	cam.SetPlains (FLAT_PLAIN, 0.0, 6500.0 , 10450.0, 10450.0, 17000.0, 40000.0);
-	cam.SetPlains (FLAT_PLAIN, 27000.0, 36000.0 , 10450.0, 10450.0, 17000.0, 40000.0);
-	cam.SetPlains (FLAT_PLAIN, 0.0, 36000.0 , 10450.0, 10450.0, 40000.0, 50000.0);
-	
+	cam.SetPlains(FLAT_PLAIN, 0.0, 36000.0, 10450.0, 10450.0, 10000.0, 17000.0);
+	cam.SetPlains(FLAT_PLAIN, 0.0, 6500.0, 10450.0, 10450.0, 17000.0, 40000.0);
+	cam.SetPlains(FLAT_PLAIN, 27000.0, 36000.0, 10450.0, 10450.0, 17000.0, 40000.0);
+	cam.SetPlains(FLAT_PLAIN, 0.0, 36000.0, 10450.0, 10450.0, 40000.0, 50000.0);
+
 	// top of lower hill
-	cam.SetPlains (FLAT_PLAIN, 9000.0, 22000.0 , 10650.0, 10650.0, 19000.0, 23000.0);
-	cam.SetPlains (FLAT_PLAIN, 9000.0, 10000.0 , 10650.0, 10650.0, 28000.0, 33000.0);
-	cam.SetPlains (FLAT_PLAIN, 9000.0, 22000.0 , 10650.0, 10650.0, 36000.0, 37000.0);
+	cam.SetPlains(FLAT_PLAIN, 9000.0, 22000.0, 10650.0, 10650.0, 19000.0, 23000.0);
+	cam.SetPlains(FLAT_PLAIN, 9000.0, 10000.0, 10650.0, 10650.0, 28000.0, 33000.0);
+	cam.SetPlains(FLAT_PLAIN, 9000.0, 22000.0, 10650.0, 10650.0, 36000.0, 37000.0);
 	// sides of lower hill
-	cam.SetPlains (ZY_PLAIN, 6500.0, 27000.0 , 10450.0, 10650.0, 17000.0, 19000.0);
-	cam.SetPlains (ZY_PLAIN, 6500.0, 27000.0 , 10650.0, 10450.0, 37000.0, 40000.0);
-	cam.SetPlains (XY_PLAIN, 6500.0, 9000.0 , 10450.0, 10650.0, 17000.0, 40000.0);
-	cam.SetPlains (XY_PLAIN, 22000.0, 27000.0 , 10650.0, 10450.0, 17000.0, 40000.0);
+	cam.SetPlains(ZY_PLAIN, 6500.0, 27000.0, 10450.0, 10650.0, 17000.0, 19000.0);
+	cam.SetPlains(ZY_PLAIN, 6500.0, 27000.0, 10650.0, 10450.0, 37000.0, 40000.0);
+	cam.SetPlains(XY_PLAIN, 6500.0, 9000.0, 10450.0, 10650.0, 17000.0, 40000.0);
+	cam.SetPlains(XY_PLAIN, 22000.0, 27000.0, 10650.0, 10450.0, 17000.0, 40000.0);
 
 	// top of higher hill
-	cam.SetPlains (FLAT_PLAIN, 14000.0, 18000.0 , 10875.0, 108075.0, 28000.0, 33000.0);
+	cam.SetPlains(FLAT_PLAIN, 14000.0, 18000.0, 10875.0, 108075.0, 28000.0, 33000.0);
 	// sides of higher hill
-	cam.SetPlains (ZY_PLAIN, 10000.0, 22000.0 , 10650.0, 10875.0, 23000.0, 28000.0);
-	cam.SetPlains (ZY_PLAIN, 10000.0, 22000.0 , 10875.0, 10650.0, 33000.0, 36000.0);
-	cam.SetPlains (XY_PLAIN, 10000.0, 14000.0 , 10650.0, 10875.0, 23000.0, 36000.0);
-	cam.SetPlains (XY_PLAIN, 18000.0, 22000.0 , 10875.0, 10650.0, 23000.0, 36000.0);
+	cam.SetPlains(ZY_PLAIN, 10000.0, 22000.0, 10650.0, 10875.0, 23000.0, 28000.0);
+	cam.SetPlains(ZY_PLAIN, 10000.0, 22000.0, 10875.0, 10650.0, 33000.0, 36000.0);
+	cam.SetPlains(XY_PLAIN, 10000.0, 14000.0, 10650.0, 10875.0, 23000.0, 36000.0);
+	cam.SetPlains(XY_PLAIN, 18000.0, 22000.0, 10875.0, 10650.0, 23000.0, 36000.0);
 
 	//entance steps
 	step = 10450.0;
 	stepLength = 9808.0;
-	for (int i = 0; i < 18 ; i ++)
+	for (int i = 0; i < 18; i++)
 	{
-		cam.SetPlains (FLAT_PLAIN, 31582.0, 33835, step, step, stepLength, stepLength + 42.0);		
+		cam.SetPlains(FLAT_PLAIN, 31582.0, 33835, step, step, stepLength, stepLength + 42.0);
 		step -= 48.0;
 		stepLength -= 142.0;
-		if ((i+3) % 5 == 0) 
+		if ((i + 3) % 5 == 0)
 		{
 			stepLength -= 500.0;
 			step -= 48.0;
@@ -585,7 +583,7 @@ void CreatePlains()
 	}
 
 	// temp plain to take down to ECL1
-	cam.SetPlains (ZY_PLAIN, 3200.0, 4800.0 , 10450.0, 9370.0, 53400.0, 57900.0);
+	cam.SetPlains(ZY_PLAIN, 3200.0, 4800.0, 10450.0, 9370.0, 53400.0, 57900.0);
 }
 
 
@@ -602,14 +600,14 @@ void CreatePlains()
 //--------------------------------------------------------------------------------------
 void IncrementFrameCount()
 {
-	double t = ((GLdouble)(clock()-lastClock))/(GLdouble)CLOCKS_PER_SEC;  
-	frameCount ++;
+	double t = ((GLdouble)(clock() - lastClock)) / (GLdouble)CLOCKS_PER_SEC;
+	frameCount++;
 
 	// reset after t
 	if (t > 0.1)
 	{
-		stepIncrement = t/frameCount * 1400;
-		angleIncrement = t/frameCount;
+		stepIncrement = t / frameCount * 1400;
+		angleIncrement = t / frameCount;
 		frameCount = 0;
 		lastClock = clock();
 	}

@@ -9,82 +9,82 @@
 #include "SoundTime.h"
 
 /**
- * class CSound: This class is the sound object, and it allow to play, stop, etc
- *
- * @author Shannon, Grahan and Shay
- */
-class CSound  
+* class CSound: This class is the sound object, and it allow to play, stop, etc
+*
+* @author Shannon, Grahan and Shay
+*/
+class CSound
 {
 public:
 	/**
-	 * CSound:
-	 *
-	 * @param filename 
-	 * @param iSoundID 
-	 * @return  
-	 */
+	* CSound:
+	*
+	* @param filename
+	* @param iSoundID
+	* @return
+	*/
 	CSound(char *filename, int iSoundID);
 	/**
-	 * ~CSound:
-	 *
-	 * @return 
-	 */
+	* ~CSound:
+	*
+	* @return
+	*/
 	virtual ~CSound();
 
 	/**
-	 * Play:
-	 *
-	 * @param start 
-	 * @param length 
-	 * @return bool 
-	 */
+	* Play:
+	*
+	* @param start
+	* @param length
+	* @return bool
+	*/
 	bool		Play(CSoundTime start, CSoundTime length);
 	/**
-	 * Play:
-	 *
-	 * @return bool 
-	 */
+	* Play:
+	*
+	* @return bool
+	*/
 	bool		Play();
 	/**
-	 * Stop:
-	 *
-	 * @return CSoundTime 
-	 */
+	* Stop:
+	*
+	* @return CSoundTime
+	*/
 	CSoundTime	Stop();
 	/**
-	 * GetLength:
-	 *
-	 * @return CSoundTime 
-	 */
+	* GetLength:
+	*
+	* @return CSoundTime
+	*/
 	CSoundTime	GetLength();
 	/**
-	 * GetSoundID:
-	 *
-	 * @return int 
-	 */
+	* GetSoundID:
+	*
+	* @return int
+	*/
 	int					GetSoundID() { return m_iSoundID; };
 
 public:
 	/**
-	 * m_data:
-	 */
+	* m_data:
+	*/
 	Uint8			*m_data;
 	/**
-	 * m_pos:
-	 */
+	* m_pos:
+	*/
 	CSoundTime		m_pos;
 	/**
-	 * m_len:
-	 */
+	* m_len:
+	*/
 	CSoundTime		m_len;
 	CSoundTime		m_stop;
 	/**
-	 * m_spec:
-	 */
+	* m_spec:
+	*/
 	SDL_AudioSpec	m_spec;
 	/**
-	 * m_iSoundID:
-	 */
+	* m_iSoundID:
+	*/
 	int						m_iSoundID; // id number for sound
 
 };

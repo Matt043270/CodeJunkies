@@ -9,9 +9,11 @@
 #include <iostream>
 #include "AABB.h"
 
+using namespace std;
+
 //--------------------------------------------------------------------------------------
 
-void AABB::SetNoBoundingBoxes(const int & tempSize) 
+void AABB::SetNoBoundingBoxes(const int & tempSize)
 {
 	m_BBox = new BoundingBox[tempSize];
 	m_NoOfBoxes = tempSize;
@@ -24,7 +26,7 @@ void AABB::ClearBB(BoundingBox* &tempArray)
 	tempArray = NULL;
 	if (tempArray == NULL)
 	{
-		delete [] tempArray;
+		delete[] tempArray;
 	}
 }
 

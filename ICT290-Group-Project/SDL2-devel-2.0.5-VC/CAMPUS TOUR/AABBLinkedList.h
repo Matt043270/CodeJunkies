@@ -14,157 +14,176 @@
 #define AABBLINKED_LIST_H
 
 //--------------------------------------------------------------------------------------
-#include<stdlib.h>
+
 #include "AABBNode.h"
 #include <freeglut.h>
 
 //--------------------------------------------------------------------------------------
+/**
+@class AABBLinkedList
+@brief Linked list used to store the bounding box nodes
 
+Linked list used to store nodes (AABBNode) which contain the co-ordinates of the bounding
+boxes which are used for the collision detection
+
+The program splits the world into four quadrants and creates a linked list to store the
+bounding box details for each.
+
+@author Shay Leary
+@version 01
+@date MAR05
+
+@author Team CodeJunkies
+@version 02
+@date 05SEP17, added doxygen comments
+
+*/
 class AABBLinkedList
 {
 public:
 	// constructor creates pointer to first node
-	AABBLinkedList() {m_first = new AABBNode;}
+	AABBLinkedList() { m_first = new AABBNode; }
 
-	virtual ~AABBLinkedList() {Clear();}
+	virtual ~AABBLinkedList() { Clear(); }
 
 	//----------------------------------------------------------------------------------
 
-	// clears linked list and frees memory
+	/**
+	@brief Clears the linked list and frees memory
 
-		/**
-		@brief Frees memory by deleting pointer members.
-		Calls Delete.
-		Called by the Destructor.
-		*/
+	@return void
+	*/
 	void Clear();
 
-	// add a node to the start of the linked list
+	/**
+	@brief Adds a node to the start of the linked list
 
-		/**
-		@brief Adds a new node, with values equal to parameters
-		to the start of the list
+	@param maxX - The maximum value on the X axis
+	@param minX - The minimum value on the X axis
+	@param maxY - The maximum value on the Y axis
+	@param minY - The minimum value on the Y axis
+	@param maxZ - The maximum value on the Z axis
+	@param minZ - The minimum value on the Z axis
 
-		@param GLdouble, GLdouble, GLdouble, 
-		GLdouble, GLdouble, GLdouble,
+	@return bool
+	*/
+	bool AddToStart(GLdouble maxX, GLdouble minX, GLdouble maxY,
+		GLdouble minY, GLdouble maxZ, GLdouble minZ);
 
-		@retval bool
-		
-		*/
-	bool AddToStart (GLdouble maxX, GLdouble minX, GLdouble maxY,
-				     GLdouble minY, GLdouble maxZ, GLdouble minZ);
-	
-		/**
-		@brief Sets the node, position given by ptrCount,
-		to the values of the rest of the params
+	/**
+	@brief Sets the values of the node
 
-		@param const int, const GLdouble, const GLdouble,
-		const GLdouble, const GLdouble,  const GLdouble, 
-		const GLdouble
-	
-		*/
+	@param &ptrCount - The position of the node in the list
+	@param maxX - The maximum value on the X axis
+	@param minX - The minimum value on the X axis
+	@param maxY - The maximum value on the Y axis
+	@param minY - The minimum value on the Y axis
+	@param maxZ - The maximum value on the Z axis
+	@param minZ - The minimum value on the Z axis
+
+	@return void
+	*/
 	void SetData(const int &ptrCount,
-				 const GLdouble maxX, const GLdouble minX,
-				 const GLdouble maxY, const GLdouble minY,
-				 const GLdouble maxZ, const GLdouble minZ);
+		const GLdouble maxX, const GLdouble minX,
+		const GLdouble maxY, const GLdouble minY,
+		const GLdouble maxZ, const GLdouble minZ);
 
 	//----------------------------------------------------------------------------------
 	//  Get Methods
 	//----------------------------------------------------------------------------------
 
-		/**
-		@brief Returns the max X value of the given node
-
-		@param int
-		@retval GLdouble
-		*/
-	GLdouble GetMaxX (int ptrCount);
-
-		/**
-		@brief Returns the max X value of the given node
-
-		@param int
-		@retval GLdouble
-		*/
-	GLdouble GetMinX (int ptrCount);
-
-		/**
-		@brief Returns the max X value of the given node
-
-		@param int
-		@retval GLdouble
-		*/
-	GLdouble GetMaxY (int ptrCount);
-		/**
-		@brief Returns the max X value of the given node
-
-		@param int
-		@retval GLdouble
-		*/
-	GLdouble GetMinY (int ptrCount);
-
-		/**
-		@brief Returns the max X value of the given node
-
-		@param int
-		@retval GLdouble
-		*/
-	GLdouble GetMaxZ (int ptrCount);
-
-		/**
-		@brief Returns the max X value of the given node
-
-		@param int
-		@retval GLdouble
-		*/
-	GLdouble GetMinZ (int ptrCount);
-	
 	/**
-	@brief returns the size of the list as an int
+	@brief Return the maximum X value of the node
 
-	@retval int
+	@param ptrCount - The position of the node in the list
+
+	@return GLdouble
 	*/
-	int GetListSize ();
-	
-	// Return the address of the link to the next node in the list
+	GLdouble GetMaxX(int ptrCount);
 
-		/**
-		@brief returns the adderss of the link to the 
-		next node in the list
-
-		@retval AABBNode*
-		*/
-    AABBNode *GetNext () const {return m_first->GetNext();}
 	/**
-	@briefReturn the address of the link to the first node in the list
+	@brief Return the minimum X value of the node
 
-	@retval AABBNode*
+	@param ptrCount - The position of the node in the list
+
+	@return GLdouble
 	*/
-	AABBNode *GetFirst() const {return m_first;}
+	GLdouble GetMinX(int ptrCount);
 
-//--------------------------------------------------------------------------------------
+	/**
+	@brief Return the maximum Y value of the node
+
+	@param ptrCount - The position of the node in the list
+
+	@return GLdouble
+	*/
+	GLdouble GetMaxY(int ptrCount);
+
+	/**
+	@brief Return the minimum Y value of the node
+
+	@param ptrCount - The position of the node in the list
+
+	@return GLdouble
+	*/
+	GLdouble GetMinY(int ptrCount);
+
+	/**
+	@brief Return the maximum Z value of the node
+
+	@param ptrCount - The position of the node in the list
+
+	@return GLdouble
+	*/
+	GLdouble GetMaxZ(int ptrCount);
+
+	/**
+	@brief Return the minimum Z value of the node
+
+	@param ptrCount - The position of the node in the list
+
+	@return GLdouble
+	*/
+	GLdouble GetMinZ(int ptrCount);
+
+	/**
+	@brief Return the size of the list
+
+	@return int
+	*/
+	int GetListSize();
+
+	/**
+	@brief Returns the address of the link to the next node in the list
+
+	@return AABBNode
+	*/
+	AABBNode *GetNext() const { return m_first->GetNext(); }
+
+	/**
+	@brief Return the address of the link to the first node in the list
+
+	@return AABBNode
+	*/
+	AABBNode *GetFirst() const { return m_first; }
+
+	//--------------------------------------------------------------------------------------
 
 private:
-		/// pointer to first node in list
+	// pointer to first node in list
 	AABBNode *m_first;
 
-	
-		/**
-		@brief deletes the node pointed to by param
+	/**
+	@brief Deletes node data and clears memory
 
-		@param AABBNode*
-		*/
-	void Delete (AABBNode *before);
+	@param before - The node to be deleted
 
-	
-		/**
-		@brief privatised copy constructor
-		*/
-	AABBLinkedList (const AABBLinkedList &ll) {};
+	@return void
+	*/
+	void Delete(AABBNode *before);
 
-		/**
-		@brief privatised assignment operator
-		*/
+	// Privatised copy constructor and assignment operator
+	AABBLinkedList(const AABBLinkedList &ll) {};
 	AABBLinkedList &operator = (const AABBLinkedList &ll) {};
 };
 

@@ -15,8 +15,8 @@ CSound::CSound(char *filename, int iSoundID)
 {
 	m_iSoundID = iSoundID;
 	Uint32 len;
-	if (SDL_LoadWAV(filename, &m_spec, &m_data, &len) == NULL ) {
-		fprintf(stderr, "Couldn't load %s: %s\n",filename, SDL_GetError());
+	if (SDL_LoadWAV(filename, &m_spec, &m_data, &len) == NULL) {
+		fprintf(stderr, "Couldn't load %s: %s\n", filename, SDL_GetError());
 		m_len = CSoundTime(0);
 		return;
 	}
@@ -33,14 +33,14 @@ CSound::CSound(char *filename, int iSoundID)
 	cvt.len = m_len.GetSDLTime();
 	SDL_ConvertAudio(&cvt);
 	SDL_FreeWAV(m_data);
-	
+
 	SDL_LockAudio();
 	m_data = cvt.buf;
 	// the new length of sound after convert from 8bit to 16bit
-	m_len = CSoundTime( cvt.len_cvt );
-	m_pos = CSoundTime( 0 );
+	m_len = CSoundTime(cvt.len_cvt);
+	m_pos = CSoundTime(0);
 	SDL_UnlockAudio();
-	
+
 }
 
 CSound::~CSound()
@@ -62,14 +62,14 @@ bool CSound::Play()
 	m_pos = CSoundTime(0);
 	m_stop = m_len;
 	SDL_PauseAudio(0);
-	
-    return 0;
+
+	return 0;
 }
 
 CSoundTime CSound::Stop()
 {
 	SDL_PauseAudio(1);
-	return CSoundTime(0,0,0);
+	return CSoundTime(0, 0, 0);
 }
 
 CSoundTime CSound::GetLength()
