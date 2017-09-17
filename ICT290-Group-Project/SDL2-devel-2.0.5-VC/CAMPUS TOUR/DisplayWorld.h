@@ -68,6 +68,8 @@ public:
 		*/
 	GLuint getMapTex();
 
+	GLuint GetTexture(int tex);
+
 private:
 
 		/**
@@ -102,7 +104,6 @@ private:
 	void DisplayStepBricks();
 	void DisplayLights();
 	void DisplayECL();
-
 	
 	// creates display lists
 		/**

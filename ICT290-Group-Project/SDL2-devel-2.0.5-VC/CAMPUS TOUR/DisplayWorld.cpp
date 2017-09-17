@@ -60,6 +60,7 @@ bool DisplayWorld::DrawWorld()
 	return true;
 }
 
+
 void DisplayWorld::deleteImageFromMemory()
 {
 
@@ -95,6 +96,11 @@ GLuint DisplayWorld::getNoExitTex()
 GLuint DisplayWorld::getMapTex()
 {
 	return tp.GetTexture(MAP);
+}
+
+GLuint DisplayWorld::GetTexture(int tex)
+{
+	return tp.GetTexture(tex);
 }
 //--------------------------------------------------------------------------------------
 // DisplayWorld the chancellery windoe and door posts
@@ -4242,6 +4248,9 @@ void DisplayWorld::CreateTextures()
 
 	image = tp.LoadTexture("data/windows/windowLibLong.raw", 256, 128);
 	tp.CreateTexture(WINDOW_LIB_LONG, image, 256, 128);
+
+	image = tp.LoadTexture("data/models/imagemap.raw", 2048, 1024);
+	tp.CreateTexture(HALLWAY_TEX, image, 2048, 1024);
 
 	image = tp.LoadTexture("data/map.raw", 256, 256);
 	tp.CreateTexture(217, image, 256, 256);

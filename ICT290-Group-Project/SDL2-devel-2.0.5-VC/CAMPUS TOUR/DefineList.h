@@ -261,6 +261,8 @@
 #define EXIT						219
 #define NO_EXIT						222
 
+#define HALLWAY_TEX					301
+
 
 class DefineList {
 

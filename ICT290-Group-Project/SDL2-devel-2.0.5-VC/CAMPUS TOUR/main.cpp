@@ -7,6 +7,7 @@
 #include "camera.h"
 #include "texturedPolygons.h"
 #include "DisplayWorld.h"
+#include "StaticModel.h"
 
 //--------------------------------------------------------------------------------------
 
@@ -14,7 +15,7 @@
 
 // USE THESE STTEINGS TO CHANGE SPEED (on different spec computers)
 // Set speed (steps)
-GLdouble movementSpeed = 10.0;
+GLdouble movementSpeed = 100.0;
 GLdouble rotationSpeed = 0.005;
 
 
@@ -51,6 +52,7 @@ GLdouble step, step2, stepLength;
 // objects
 Camera cam;
 DisplayWorld displayWorld;
+StaticModel hallwayModel;
 
 // initializes setting
 void myinit();
@@ -148,6 +150,11 @@ void myinit()
 	// load texture images and create display lists
 	displayWorld.DrawWorld();
 	
+	StaticModel::LoadObjFile("data/models/hallway.obj", hallwayModel);
+	hallwayModel.LoadToCalllist(300);
+	hallwayModel.Translate(4559, 10000, 45740);
+	hallwayModel.Rotate(0, 90, 0);
+	hallwayModel.Scale(20.25f, 20.25f, 20.25f);
 }
 
 //--------------------------------------------------------------------------------------
@@ -182,6 +189,7 @@ void Display()
 		cam.SetRotateSpeed (angleIncrement);
 		// display images
 		displayWorld.RenderWorld(lightsOn);
+		hallwayModel.Render(displayWorld.GetTexture(HALLWAY_TEX));
 	glPopMatrix();
 	glDisable (GL_TEXTURE_2D); 
 
