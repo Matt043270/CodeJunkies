@@ -52,7 +52,7 @@
     <OutDir>.\Release\</OutDir>
     <IntDir>.\Release\</IntDir>
     <LinkIncremental>false</LinkIncremental>
-    <LibraryPath>C:\Users\Matt\Desktop\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\packages\SDL.1.2.15.16\build\native\lib\Win32\v140\Release;C:\Users\Matt\Desktop\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\packages\SDL.1.2.15.16\build\native\lib\Win32\v140\Release\Application\WithStdioRedirect;C:\Users\Matt\Desktop\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\freeglut-2.8.1\include\GL;C:\Users\Matt\Desktop\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\freeglut-2.8.1\lib\x86\Debug;$(LibraryPath)</LibraryPath>
+    <LibraryPath>C:\Users\matts\Desktop\Uni Coding\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\packages\SDL.1.2.15.16\build\native\lib\Win32\v140\Release\Application\WithStdioRedirect;C:\Users\matts\Desktop\Uni Coding\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\packages\SDL.1.2.15.16\build\native\lib\Win32\v140\Release;C:\Users\matts\Desktop\Uni Coding\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\freeglut-2.8.1\lib\x86\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -105,7 +105,7 @@
       <PrecompiledHeaderOutputFile>.\Release\houses.pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>.\Release\</ObjectFileName>
       <ProgramDataBaseFileName>.\Release\</ProgramDataBaseFileName>
-      <AdditionalIncludeDirectories>C:\Users\Matt\Desktop\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\packages\SDL.1.2.15.16\build\native\lib\Win32\v140\Release;C:\Users\Matt\Desktop\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\packages\SDL.1.2.15.16\build\native\lib\Win32\v140\Release\Application\WithStdioRedirect;C:\Users\Matt\Desktop\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\freeglut-2.8.1\include\GL;C:\Users\Matt\Desktop\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\freeglut-2.8.1\lib\x86\Debug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\matts\Desktop\Uni Coding\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\freeglut-2.8.1\lib\x86\Debug;C:\Users\matts\Desktop\Uni Coding\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\packages\SDL.1.2.15.16\build\native\lib\Win32\v140\Release\Application\WithStdioRedirect;C:\Users\matts\Desktop\Uni Coding\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\packages\SDL.1.2.15.16\build\native\lib\Win32\v140\Release;C:\Users\matts\Desktop\Uni Coding\Uni Coding\CodeJunkies-MattS\CodeJunkies-MattS\ICT290-Group-Project\SDL2-devel-2.0.5-VC\CAMPUS TOUR\freeglut-2.8.1\include\GL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Midl>
@@ -164,6 +164,7 @@
       <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
     </ClCompile>
     <ClCompile Include="DisplayWorld.cpp" />
+    <ClCompile Include="StaticModel.cpp" />
     <ClCompile Include="texturedPolygons.cpp">
       <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</BasicRuntimeChecks>
     </ClCompile>
@@ -182,6 +183,7 @@
     <ClInclude Include="PlainNode.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="SoundTime.h" />
+    <ClInclude Include="StaticModel.h" />
     <ClInclude Include="texturedPolygons.h" />
   </ItemGroup>
   <ItemGroup>

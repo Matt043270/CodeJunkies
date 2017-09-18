@@ -173,13 +173,7 @@ private:
 	// pointer to first node in list
 	AABBNode *m_first;
 
-	/**
-	@brief Deletes node data and clears memory
-
-	@param before - The node to be deleted
-
-	@return void
-	*/
+	// used to clear memory
 	void Delete(AABBNode *before);
 
 	// Privatised copy constructor and assignment operator

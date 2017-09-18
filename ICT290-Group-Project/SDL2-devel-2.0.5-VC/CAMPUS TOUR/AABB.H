@@ -54,26 +54,16 @@ private:
 		GLdouble x, y, z;
 	};
 	// stores max and min values of co-ordinates
-
 	struct BoundingBox
 	{
 		XYZ max;
 		XYZ min;
 	};
-
 	// dynamic array to store info
 	BoundingBox *m_BBox;
-
 	// number of BB created (i.e. array size)
 	int m_NoOfBoxes;
-
-	/**
-	@brief Deletes arrays and clears memory
-
-	@param tempArray - The array to be deleted
-
-	@return void
-	*/
+	// deletes arrays and clears memory
 	void ClearBB(BoundingBox* &tempArray);
 
 	//----------------------------------------------------------------------------------

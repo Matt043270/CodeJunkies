@@ -60,6 +60,7 @@ bool DisplayWorld::DrawWorld()
 	return true;
 }
 
+
 void DisplayWorld::deleteImageFromMemory()
 {
 
@@ -95,6 +96,11 @@ GLuint DisplayWorld::getNoExitTex()
 GLuint DisplayWorld::getMapTex()
 {
 	return tp.GetTexture(MAP);
+}
+
+GLuint DisplayWorld::GetTexture(int tex)
+{
+	return tp.GetTexture(tex);
 }
 //--------------------------------------------------------------------------------------
 // DisplayWorld the chancellery windoe and door posts
@@ -2140,29 +2146,6 @@ void DisplayWorld::DisplayEntranceSteps()
 	glBindTexture(GL_TEXTURE_2D, tp.GetTexture(STEP_EDGE));
 	for (i = 293; i < 296; i++) glCallList(i);
 
-
-	glBindTexture(GL_TEXTURE_2D, tp.GetTexture(STEPS_LIBRARY));
-	step = 0.0;
-	step2 = -51.0;
-	for (i = 0; i < 10; i++)
-	{
-		glPushMatrix();
-		glTranslatef(step, step2, 0.0);
-		glCallList(206);
-		glPopMatrix();
-		glPushMatrix();
-		glTranslatef(step, step2, 965.0);
-		glCallList(206);
-		glPopMatrix();
-		step += 128.0;
-		step2 += -51.0;
-	}
-	glBindTexture(GL_TEXTURE_2D, tp.GetTexture(STEPS_LIBRARY_TOP));
-	glCallList(207);
-	glPushMatrix();
-	glTranslatef(0.0, 0.0, 965.0);
-	glCallList(207);
-	glPopMatrix();
 }
 
 void DisplayWorld::DrawEntranceSteps()
@@ -3145,7 +3128,7 @@ void DisplayWorld::DrawLargerTextures()
 	tp.CreateXtoYWindowList(379, 43152.0, 33232.0, 384.0, 10000.0, 768.0, 1.0, 1.0);		// GCL1 doorway	
 	tp.CreateXtoYWindowList(380, 43152.0, 32720.0, 384.0, 10000.0, 768.0, 1.0, 1.0);		// GCL1 doorway
 
-	tp.CreateYtoZWindowList(381, 36047, 9422.0, 1410.0, 41127.0, 1929.0, 0.725, 1.0);	// Exit East  375x512
+	//tp.CreateYtoZWindowList(381, 36047, 9422.0, 1410.0, 41127.0, 1929.0, 0.725, 1.0);	// Exit East  375x512
 
 	tp.CreateXtoYWindowList(383, 43152.0, 11055.0, 1014.0, 10388.0, 380.0, 1.0, 0.75);	// 256x96 Library Window downstairs
 	tp.CreateXtoYWindowList(384, 43152.0, 8879.0, 1014.0, 11412.0, 444.0, 1.0, 0.876);	// 256x112 Library Window upstairs
@@ -3583,7 +3566,7 @@ void DisplayWorld::CreateTextures()
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
 	// set texture count
-	tp.SetTextureCount(250);
+	tp.SetTextureCount(350);
 
 	// load and create textures
 	image = tp.LoadTexture("data/abovechanctext.raw", 128, 1024);
@@ -4242,6 +4225,12 @@ void DisplayWorld::CreateTextures()
 
 	image = tp.LoadTexture("data/windows/windowLibLong.raw", 256, 128);
 	tp.CreateTexture(WINDOW_LIB_LONG, image, 256, 128);
+
+	image = tp.LoadTexture("data/models/imagemapHallway.raw", 2048, 1024);
+	tp.CreateTexture(HALLWAY_TEX, image, 2048, 1024);
+
+	image = tp.LoadTexture("data/models/imagemapTrack.raw", 1024, 512);
+	tp.CreateTexture(TRACK_TEX, image, 1024, 512);
 
 	image = tp.LoadTexture("data/map.raw", 256, 256);
 	tp.CreateTexture(217, image, 256, 256);

@@ -1,17 +1,3 @@
-/**
-@class DefineList
-@brief The list of the definitions for Shay's World
-
-@author Shay Leary
-@version 01
-@date MAR05
-
-@author Team CodeJunkies
-@version 02
-@date 01SEP17, definitions moved to a separate class, doxygen comments added
-*/
-
-
 #ifndef DEFINELIST_H
 #define DEFINELIST_H
 
@@ -32,7 +18,6 @@
 #define GRASS						1
 #define GRASS_2						2
 #define GRASS_HILL					3
-
 // Pavement Textures
 #define PAVEMENT					4
 #define PAVEMENT_TOP				5
@@ -45,7 +30,6 @@
 #define PAVEMENT_TOP_FLIP			12
 #define PAVEMENT_16					13
 #define DOORPAVE_1					14
-
 // Wall Brick Textures
 #define WALL_BRICK_YZ				15
 #define WALL_BRICK_XY				16
@@ -59,7 +43,6 @@
 #define WALL_BRICK_3_4				24
 #define SHADOW_BRICK				25
 #define WALL_BRICK_SEC_SIGN			216
-
 // Window Post Textures
 #define WINDOWPOST_CHANC_FRONT		26
 #define WINDOWPOST_CHANC_RIGHT	    27
@@ -72,10 +55,8 @@
 #define	WINDOWPOST_LIB_FRONT		34
 #define	WINDOWPOST_LIB_LEFT			35
 #define	WINDOWPOST_LIB_RIGHT		36
-
 // Door Post Textures
 #define DOOR_POST_SECURITY			37
-
 // Window Ledge Textures
 #define WINDOWLEDGE_PS_FRONT		38
 #define WINDOWLEDGE_PS_TOP			39
@@ -86,22 +67,18 @@
 #define WINDOWLEDGE_LIB_TOP_B		44
 #define WINDOW_LEDGE_END_1			45
 #define WINDOW_LEDGE_END_2			46
-
 // Main Post Textures
 #define	MAIN_POST					47
 #define	MAIN_POST_2					48
-
 // Door Post Textures
 #define DOOR_POST_CHANC				49
 #define DOOR_SIDEPOST_CHANC			50
 #define DOOR_POST_LIB				215
-
 // Coloured Posts Textures
 #define PURPLE_POST					51
 #define PURPLE_POSTSIDE				52
 #define RED_POST					53
 #define RED_POSTSIDE				54
-
 // Roof Textures
 #define ROOF_TOP					55
 #define ROOF_TOP_LIB				56
@@ -113,7 +90,6 @@
 #define ROOF_BEAM_3					62
 #define ROOF_BEAM_4					63
 #define ROOF_BEAM_3_TOP				64
-
 // KBLT Textures
 #define KBLT						65
 #define KBLT_EDGE					66
@@ -121,7 +97,6 @@
 #define KBLT_EDGE_CORNER			68
 #define KBLT_SIDE_1					69
 #define KBLT_SIDE_2					70
-
 // Sign and Other Textures
 #define NEXUS_SIGN					71
 #define NEXUS_SIDE					72
@@ -153,7 +128,6 @@
 #define RUSTY_MAN					98
 #define NO_SMOKE_SIGN				99
 #define CARPET						100
-
 // Drinks Machine Textures
 #define DRINKS_SIDE					101
 #define DRINKS_TOP					102
@@ -164,7 +138,6 @@
 #define SWEET_MACHINE				107
 #define MACHINE_SIDES				108
 #define MACHINE_SIDES_2				109
-
 // Telephone Box Textures
 #define TELEPHONE_BACK				110
 #define TELEPHONE_FRONT				111
@@ -177,7 +150,6 @@
 #define TELEPHONE_BOTTOM			118
 #define TELEPHONE_FILL				119
 #define TELEPHONE_FRONT_3			120
-
 // Step Textures
 #define STEPS_LIBRARY				121
 #define STEPS_LIBRARY_TOP			122
@@ -251,12 +223,10 @@
 #define ABOVE_TICKETS_TEXT			184
 #define ABOVE_CHANC_EDGE			185
 #define TOILET_DOOR_TOP				186
-
 // Light Fitting Textures
 #define LIGHT						187
 #define	LIGHT_SUPPORT				188
 #define	LIGHT_SUPPORT_2				189
-
 // Bench Textures
 #define BENCH_TOP					190
 #define BENCH_SIDE					191
@@ -267,7 +237,6 @@
 #define BENCH_EDGE_TOP_2			196
 #define BENCH_EDGE_2				197
 #define BENCH_EDGE_3				198
-
 // Ticket Counter and Ledge Textures
 #define TICKET_COUNTER_TOP			200
 #define TICKET_COUNTER_EDGE			201
@@ -276,24 +245,24 @@
 #define TICKET_LEDGE				204
 #define TICKET_LEDGE_EDGE			205
 #define TICKET_LEDGE_EDGE_2			206
-
 // Wall by Steps Textures
 #define WALL_BRICK_STEPS_TOP		207
 #define WALL_BRICK_STEPS			208
 #define WALL_BRICK_STEPS_COVER		209
 #define WALL_BRICK_STEPS_EDGE		210
 #define WALL_BRICK_STEPS_EDGE_2		211
-
 // Extra Textures
 #define DRAINPIPE					212
 #define COUNTER_TOP					213
 #define COUNTER_SIDE				214
-
 // Welcome, Exit and Map Screens
 #define MAP							217
 #define WELCOME						218
 #define EXIT						219
 #define NO_EXIT						222
+
+#define HALLWAY_TEX					301
+#define TRACK_TEX					302
 
 
 class DefineList {
