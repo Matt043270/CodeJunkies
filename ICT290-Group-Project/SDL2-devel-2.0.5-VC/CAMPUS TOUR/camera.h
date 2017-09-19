@@ -163,6 +163,7 @@ public:
 	*/
 	void InitiateBoundingBoxes() { m_colDetect.CreateLinkedList(); }
 
+	// sets the co-ordinate of each plain
 	/**
 	@brief Sets the coordinates for each plane
 

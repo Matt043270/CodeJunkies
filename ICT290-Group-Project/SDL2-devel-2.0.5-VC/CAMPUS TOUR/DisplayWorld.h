@@ -14,19 +14,8 @@
 #include "texturedPolygons.h"
 #include"DefineList.h"
 
-/**
-@class DisplayWorld
-@brief Manages all models for Shay's World
 
-Models are created using the block of draw functions, and are rendered using the block of display functions.
-Textures are created from raw files and associated with a string as reference.
 
-@author Team CodeJunkies
-@version 01
-@date 04SEP17
-Display and draw functions moved to a separate class, doxygen comments added
-
-*/
 class DisplayWorld {
 
 public:
@@ -34,65 +23,66 @@ public:
 	@brief Calls all display functions
 
 	@param bool
-
-	@return bool (true if successfull)
+	@retval bool (true if successfull)
 	*/
 	bool RenderWorld(bool lightsOn);
 
 	/**
-	@brief Calls all draw functions
+	@brief calls all draw functions
 
-	@return bool (true if successfull)
+	@retval bool (true if successfull)
 	*/
 	bool DrawWorld();
 
 	/**
-	@brief Calls deleteTempImageFromMemory and passes member image as a parameter
-
-	@return void
+	@brief calls deleteTempImageFromMemory
+	and passes member image as a parameter
 	*/
 	void deleteImageFromMemory();
 
 	/**
-	@brief Returns a reference to the welcome texture
+	@brief returns a reference to the welcome texture
 
-	@return GLuint
+	@retval GLuint
 	*/
 	GLuint getWelcomeTex();
 
 	/**
-	@brief Returns a reference to the exit texture
+	@brief returns a reference to the exit texture
 
-	@return GLuint
+	@retval GLuint
 	*/
 	GLuint getExitTex();
 
 	/**
-	@brief Returns a reference to the no exit texture
+	@brief returns a reference to the no exit texture
 
-	@return GLuint
+	@retval GLuint
 	*/
 	GLuint getNoExitTex();
 
 	/**
-	@brief Returns a reference to the map texture
+	@brief returns a reference to the map texture
 
-	@return GLuint
+	@retval GLuint
 	*/
 	GLuint getMapTex();
+
+	GLuint GetTexture(int tex);
 
 private:
 
 	/**
-	@brief Frees memory by deleting given parameter
+	@brief frees memory by deleting given parameter
 
 	@param unsigned char*
-
-	@return void
 	*/
 	void deleteTempImageFromMemory(unsigned char* tempImage);
 	// functions to display display lists (images) and bind them to a texture
 
+	/**
+	@brief
+	*/
 	void DisplayAboveWindowBlock();
 	void DisplayBench();
 	void DisplayBricks();
@@ -115,8 +105,10 @@ private:
 	void DisplayLights();
 	void DisplayECL();
 
-
 	// creates display lists
+	/**
+	@brief
+	*/
 	void DrawGrass();
 	void DrawChancPosts();
 	void DrawDoorPosts();
@@ -143,20 +135,15 @@ private:
 	void DrawECL();
 
 	/**
-	@brief Loads each texture and associates them with a string
-
-	@return void
+	@brief loads each texture and associates them with a string
 	*/
 	void CreateTextures();
 
 	TexturedPolygons tp;
-
 	// varibles used for tarnslating graphics etc
 	GLdouble step, step2, stepLength;
-
 	// Glut Cylinder
 	GLUquadricObj *glu_cylinder;
-
 	// Stores raw image file
 	unsigned char* image = NULL;
 

@@ -98,6 +98,8 @@ public:
 	*/
 	void SetAABBMinZ(const int & tempIndex, const double &tempZ) { m_AABB.SetMinZ(tempIndex, tempZ); }
 
+	// sets the actual world co-ordinates
+
 	/**
 	@brief Sets the size of the world on the X axis
 
@@ -116,6 +118,7 @@ public:
 	*/
 	void SetWorldZ(const double &tempZ) { m_worldSizeZ = tempZ; }
 
+	// set number of bounding boxes
 	/**
 	@brief Sets the number of bounding boxes
 
@@ -224,16 +227,7 @@ private:
 	double m_worldSizeX;
 	double m_worldSizeZ;
 
-	/**
-	@brief Checks if a collision has occured
-
-	@param index - The quadrant number of the world
-	@param endX - The X value 
-	@param endY - The Y value
-	@param endZ - The Z value
-
-	@return bool
-	*/
+	// checks if collsion occurred (called from Collide)
 	bool CheckCollision(int index, double endX, double endY, double endZ);
 
 	//----------------------------------------------------------------------------------

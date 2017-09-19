@@ -190,13 +190,6 @@ private:
 	PlainNode *m_first;
 
 	// used to clear memory
-	/**
-	@brief Deletes node and clears memory
-
-	@param before - The node to be deleted
-
-	@return void
-	*/
 	void Delete(PlainNode *before);
 
 	// Privatised copy constructor and assignment operator

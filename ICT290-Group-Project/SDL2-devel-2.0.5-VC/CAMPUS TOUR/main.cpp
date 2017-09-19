@@ -7,6 +7,7 @@
 #include "camera.h"
 #include "texturedPolygons.h"
 #include "DisplayWorld.h"
+#include "StaticModel.h"
 
 //--------------------------------------------------------------------------------------
 
@@ -14,8 +15,11 @@
 
 // USE THESE STTEINGS TO CHANGE SPEED (on different spec computers)
 // Set speed (steps)
-GLdouble movementSpeed = 10.0;
+GLdouble movementSpeed = 100.0;
 GLdouble rotationSpeed = 0.005;
+
+
+
 
 //--------------------------------------------------------------------------------------
 
@@ -48,6 +52,9 @@ GLdouble step, step2, stepLength;
 // objects
 Camera cam;
 DisplayWorld displayWorld;
+
+StaticModel hallwayModel;
+StaticModel trackModel;
 
 // initializes setting
 void myinit();
@@ -132,8 +139,9 @@ void myinit()
 	// set number of bounding boxes required
 	cam.SetNoBoundingBoxes(19);
 	// set starting position of user
-	cam.Position(32720.0, 9536.0,
-		4800.0, 180.0);
+	//cam.Position(32720.0, 9536.0,	4800.0, 180.0);
+	// Start at hallway
+	cam.Position(34000, 10450.0, 42000.0, 90.0);
 
 	CreatePlains();
 
@@ -145,6 +153,17 @@ void myinit()
 	// load texture images and create display lists
 	displayWorld.DrawWorld();
 
+	StaticModel::LoadObjFile("data/models/hallway.obj", hallwayModel);
+	hallwayModel.LoadToCalllist(300);
+	hallwayModel.Translate(34350, 10000, 42097);
+	hallwayModel.Rotate(0, 180, 0);
+	hallwayModel.Scale(13.5f, 8.8f, 9.9f);
+
+	StaticModel::LoadObjFile("data/models/track.obj", trackModel);
+	trackModel.LoadToCalllist(301);
+	trackModel.Translate(62136, 7600, 46000);
+	trackModel.Rotate(0, 90, 0);
+	trackModel.Scale(130, 130, 130);
 }
 
 //--------------------------------------------------------------------------------------
@@ -164,14 +183,14 @@ void Display()
 	// displays the welcome screen
 	if (DisplayWelcome) cam.DisplayWelcomeScreen(width, height, 1, displayWorld.getWelcomeTex());
 	// displays the exit screen
-	if (DisplayExit) cam.DisplayWelcomeScreen(width, height, 0, displayWorld.getWelcomeTex());
+	if (DisplayExit) cam.DisplayWelcomeScreen(width, height, 0, displayWorld.getExitTex());
 	// displays the map
 	if (DisplayMap) cam.DisplayMap(width, height, displayWorld.getMapTex());
 	// display no exit sign (position check should really be in an object, but didn't have time)
 	/*if ((cam.GetLR() > 35500.0) && (cam.GetFB() < 25344.0) ||
-	(cam.GetLR() > 34100.0) && (cam.GetFB() > 41127.0))
+		(cam.GetLR() > 34100.0) && (cam.GetFB() > 41127.0))
 	{
-	cam.DisplayNoExit(width, height, displayWorld.getNoExitTex());
+		cam.DisplayNoExit(width, height, displayWorld.getNoExitTex());
 	}*/
 	// set the movement and rotation speed according to frame count
 	IncrementFrameCount();
@@ -179,6 +198,8 @@ void Display()
 	cam.SetRotateSpeed(angleIncrement);
 	// display images
 	displayWorld.RenderWorld(lightsOn);
+	hallwayModel.Render(displayWorld.GetTexture(HALLWAY_TEX));
+	trackModel.Render(displayWorld.GetTexture(TRACK_TEX));
 	glPopMatrix();
 	glDisable(GL_TEXTURE_2D);
 
@@ -429,8 +450,10 @@ void mouseMove(int x, int y)
 //--------------------------------------------------------------------------------------
 // Set up bounding boxes for collsion detection
 //--------------------------------------------------------------------------------------
+
 void CreateBoundingBoxes()
 {
+
 	// chanc block
 	cam.SetAABBMaxX(0, 35879.0);
 	cam.SetAABBMinX(0, 33808.0);
@@ -485,15 +508,8 @@ void CreateBoundingBoxes()
 	cam.SetAABBMaxZ(8, 4688.0);
 	cam.SetAABBMinZ(8, 0.0);
 
-	//// end of phy sci block exit (top of steps)
-	//cam.SetAABBMaxX(9, 35879.0);
-	//cam.SetAABBMinX(9, 34320.0);
-	//cam.SetAABBMaxZ(9, 43056.0);
-	//cam.SetAABBMinZ(9, 41127.0);
-
 	// library end panel
-	//cam.SetAABBMaxX(10, 34320.0);
-	cam.SetAABBMaxX(10, 35879.0);
+	cam.SetAABBMaxX(10, 50000.0);
 	cam.SetAABBMinX(10, 6514.0);
 	cam.SetAABBMaxZ(10, 50000.0);
 	cam.SetAABBMinZ(10, 43036.0);
@@ -533,7 +549,14 @@ void CreateBoundingBoxes()
 	cam.SetAABBMinX(16, 31444.0);
 	cam.SetAABBMaxZ(16, 10395.0);
 	cam.SetAABBMinZ(16, 4590.0);
+
+	// Team CodeJunies inner hallway wall
+	cam.SetAABBMaxX(17, 50000.0);
+	cam.SetAABBMinX(17, 34320.0);
+	cam.SetAABBMaxZ(17, 41127.0);
+	cam.SetAABBMinZ(17, 41000.0);
 }
+
 
 //--------------------------------------------------------------------------------------
 // Set up co-ordinates of different plains
@@ -544,10 +567,11 @@ void CreatePlains()
 	cam.SetPlains(ZY_PLAIN, 4848.0, 31568.0, 9536.0, 10450.0, 6200.0, 10000.0);
 
 	// flat land (pavement and grass)
-	cam.SetPlains(FLAT_PLAIN, 0.0, 36000.0, 10450.0, 10450.0, 10000.0, 17000.0);
+	cam.SetPlains(FLAT_PLAIN, 0.0, 34320.0, 10450.0, 10450.0, 10000.0, 17000.0);
 	cam.SetPlains(FLAT_PLAIN, 0.0, 6500.0, 10450.0, 10450.0, 17000.0, 40000.0);
-	cam.SetPlains(FLAT_PLAIN, 27000.0, 36000.0, 10450.0, 10450.0, 17000.0, 40000.0);
-	cam.SetPlains(FLAT_PLAIN, 0.0, 36000.0, 10450.0, 10450.0, 40000.0, 50000.0);
+	cam.SetPlains(FLAT_PLAIN, 27000.0, 34320.0, 10450.0, 10450.0, 17000.0, 40000.0);
+	cam.SetPlains(FLAT_PLAIN, 0.0, 34320.0, 10450.0, 10450.0, 40000.0, 50000.0);
+
 
 	// top of lower hill
 	cam.SetPlains(FLAT_PLAIN, 9000.0, 22000.0, 10650.0, 10650.0, 19000.0, 23000.0);
@@ -584,9 +608,23 @@ void CreatePlains()
 
 	// temp plain to take down to ECL1
 	cam.SetPlains(ZY_PLAIN, 3200.0, 4800.0, 10450.0, 9370.0, 53400.0, 57900.0);
+
+
+	// Team CodeJunkies hallway
+	GLdouble teamStep = 10450.0;
+	GLdouble teamStepLength = 34320.0;
+	for (int i = 0; i < 18; i++)
+	{
+		cam.SetPlains(FLAT_PLAIN, teamStepLength, teamStepLength + 128.0, teamStep, teamStep, 41127.0, 43056.0);
+		teamStep -= 45.0;
+		teamStepLength += 128.0;
+		if (i == 8)
+		{
+			teamStep -= 0.0;
+			teamStepLength += 7640.0;
+		}
+	}
 }
-
-
 
 //--------------------------------------------------------------------------------------
 

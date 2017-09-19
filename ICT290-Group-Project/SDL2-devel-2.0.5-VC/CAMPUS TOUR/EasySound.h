@@ -14,6 +14,12 @@
 #include "Sound.h"
 #include "SoundTime.h"
 
+/**
+* class Score: This class displays the score, bonus and time on the screen
+*
+* @author Shay Leary
+*/
+
 // make sure to link this librarys or error will occur
 #pragma comment(lib, "SDL.lib")
 #pragma comment(lib, "SDLmain.lib")
@@ -22,24 +28,25 @@
 #define ES_FREQ		88200
 
 extern void mixaudio(void *unused, Uint8 *stream, int len);
-
-
 /**
-@class CEasySound
-
-@brief Displays the score, bonus and time on the screen
-
-This class is singleton design pattern, and it control all object related to sound. (use SDL library)
-
-@author Shay Leary
-@version 01
-@date MAR05
-
+* class CEasySound: This class is singleton design pattern, and it control all object related to sound. (use SDL library)
+*
+* @author Shannon, Graham and Shay
 */
 class CEasySound
 {
 public:
+	/**
+	* Instance: Get CEasySound class before using any methods (Singleton Design Pattern)
+	*
+	* @return static CEasySound*
+	*/
 	static CEasySound* Instance();
+	/**
+	* ~CEasySound:
+	*
+	* @return
+	*/
 	virtual ~CEasySound();
 
 	/**
