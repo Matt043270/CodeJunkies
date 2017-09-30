@@ -1,9 +1,0 @@
-﻿  CallbackMaker.c
-..\..\..\progs\demos\CallbackMaker\CallbackMaker.c(139): warning C4473: 'printf' : not enough arguments passed for format string
-  ..\..\..\progs\demos\CallbackMaker\CallbackMaker.c(139): note: placeholders and their parameters expect 1 variadic arguments, but 0 were provided
-  ..\..\..\progs\demos\CallbackMaker\CallbackMaker.c(139): note: the missing variadic argument 1 is required by format string '%6d'
-..\..\..\progs\demos\CallbackMaker\CallbackMaker.c(149): warning C4473: 'printf' : not enough arguments passed for format string
-  ..\..\..\progs\demos\CallbackMaker\CallbackMaker.c(149): note: placeholders and their parameters expect 1 variadic arguments, but 0 were provided
-  ..\..\..\progs\demos\CallbackMaker\CallbackMaker.c(149): note: the missing variadic argument 1 is required by format string '%6d'
-  CallbackMaker.vcxproj -> C:\000Uniwork\freeglut-2.8.1\VisualStudio\2012\CallbackMaker\..\..\..\progs\demos\x86\debug_dll\CallbackMaker.exe
-  CallbackMaker.vcxproj -> ..\..\..\progs\demos\x86\debug_dll\CallbackMaker.pdb (Full PDB)
