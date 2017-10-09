@@ -30,7 +30,7 @@ public:
 		* @param[in] texFile A string containing the location of the texture file to load.
 		* @param[out] texture A pointer to a Texture object to load the data into.
 		*/
-	static void LoadTexture(std::string texFile, Texture * texture);
+	static void LoadTexture(std::string texFile, Texture & texture, int width, int height);
 		/**
 		 * Adds a StaticModel pointer to the asset manager.
 		 * @param[in] model The pointer to the model
@@ -48,6 +48,11 @@ public:
 	void AddEntity(Entity * entity);
 
 		/**
+		 * Beings the loading of all the assets used by the game.
+		 */
+	void LoadAllAssets();
+
+		/**
 		 * Render all loaded entities onto the screen.
 		 */
 	void RenderLoadedEntities();
@@ -61,22 +66,22 @@ private:
 		 * Callback for the BST, used while rendering each entity.
 		 * @param[in] entity The pointer to the entity to render.
 		 */
-	void RenderEntityCallback(Entity * entity);
+	static void RenderEntityCallback(Entity * entity);
 		/**
 		 * Callback for the BST, used while unloading the models.
 		 * @param[in] model The pointer to the model.
 		 */
-	void UnloadModelCallback(StaticModel * model);
+	static void UnloadModelCallback(StaticModel * model);
 		/**
 		 * Callback for the BST, used while unloading the textures.
 		 * @param[in] texture The pointer to the texture.
 		 */
-	void UnloadTextureCallback(Texture * texture);
+	static void UnloadTextureCallback(Texture * texture);
 		/**
 		 * Callback for the BST, used while unloading the entities.
 		 * @param[in] entity The pointer to the entity.
 		 */
-	void UnloadEntityCallback(Entity * entity);
+	static void UnloadEntityCallback(Entity * entity);
 private:
 		/**
 		 * A BST of all the models

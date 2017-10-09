@@ -94,7 +94,7 @@ void BST<T>::PostOrderTraversal(void(*callback)(T*))
 template <class T>
 void BST<T>::recursiveInsert(BSTNode<T> * node, T * newValue)
 {
-	if (newValue < node->value)
+	if (*newValue < *(node->value))
 	{
 		if (node->left == nullptr)
 		{
@@ -105,7 +105,7 @@ void BST<T>::recursiveInsert(BSTNode<T> * node, T * newValue)
 			recursiveInsert(node->left, newValue);
 		}
 	}
-	else if (newValue > node->value)
+	else if (*newValue > *(node->value))
 	{
 		if (node->right == nullptr)
 		{

@@ -43,7 +43,7 @@ void StaticModel::LoadObjFile(std::string objFile, StaticModel &model)
 	while (getline(file, line))
 	{
 		ss.str(line);
-		
+
 		// Vertex
 		if (line.compare(0, v.length(), v) == 0)
 		{
@@ -63,9 +63,9 @@ void StaticModel::LoadObjFile(std::string objFile, StaticModel &model)
 			string pre, u, v;
 			ss >> pre >> u >> v;
 			TexCoord tex;
-			
+
 			tex.u = strtof(u.c_str(), NULL);
-			tex.v = strtof(v.c_str(), NULL);
+			tex.v = 1 - (strtof(v.c_str(), NULL));
 			model.AddTextureCoord(tex);
 		}
 
@@ -121,18 +121,18 @@ void StaticModel::LoadToCalllist(int calllist)
 
 	glNewList(calllist, GL_COMPILE);
 	glBegin(GL_TRIANGLES);
-		
-		for (facItr = m_f.begin(); facItr != m_f.end(); facItr++)
-		{
-			Face f = *facItr;
-			glTexCoord2f(m_t[f.t1-1].u, m_t[f.t1-1].v);
-			glVertex3f(m_v[f.v1-1].x, m_v[f.v1-1].y, m_v[f.v1-1].z);
-			glTexCoord2f(m_t[f.t2-1].u, m_t[f.t2-1].v);
-			glVertex3f(m_v[f.v2-1].x, m_v[f.v2-1].y, m_v[f.v2-1].z);
-			glTexCoord2f(m_t[f.t3-1].u, m_t[f.t3-1].v);
-			glVertex3f(m_v[f.v3-1].x, m_v[f.v3-1].y, m_v[f.v3-1].z);
-		}
-		
+
+	for (facItr = m_f.begin(); facItr != m_f.end(); facItr++)
+	{
+		Face f = *facItr;
+		glTexCoord2f(m_t[f.t1 - 1].u, m_t[f.t1 - 1].v);
+		glVertex3f(m_v[f.v1 - 1].x, m_v[f.v1 - 1].y, m_v[f.v1 - 1].z);
+		glTexCoord2f(m_t[f.t2 - 1].u, m_t[f.t2 - 1].v);
+		glVertex3f(m_v[f.v2 - 1].x, m_v[f.v2 - 1].y, m_v[f.v2 - 1].z);
+		glTexCoord2f(m_t[f.t3 - 1].u, m_t[f.t3 - 1].v);
+		glVertex3f(m_v[f.v3 - 1].x, m_v[f.v3 - 1].y, m_v[f.v3 - 1].z);
+	}
+
 	glEnd();
 	glEndList();
 
@@ -169,7 +169,6 @@ void StaticModel::Render(GLuint tex)
 	glRotatef(m_yRot, 0, 1, 0);
 	glRotatef(m_zRot, 0, 0, 1);
 	glScalef(m_xScale, m_yScale, m_zScale);
-
 	glBindTexture(GL_TEXTURE_2D, tex);
 	glCallList(m_callListId);
 	glPopMatrix();
@@ -195,4 +194,19 @@ void StaticModel::OutputFace()
 		std::cout << "Face 3 - V: " << (*facItr).v3 << " T: " << (*facItr).t3 << " N: " << (*facItr).n3 << std::endl << std::endl;
 	}
 	std::cout << "Total Face Size: " << m_f.size() << std::endl;
+}
+
+GLuint StaticModel::GetCallListId()
+{
+	return m_callListId;
+}
+
+bool StaticModel::operator > (StaticModel &rhs)
+{
+	return (m_callListId > rhs.GetCallListId());
+}
+
+bool StaticModel::operator < (StaticModel &rhs)
+{
+	return (m_callListId < rhs.GetCallListId());
 }

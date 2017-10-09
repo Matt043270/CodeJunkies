@@ -68,7 +68,7 @@ public:
 		 * Scales the entity.
 		 * @param[in] newScale How big the entity is.
 		 */
-	void Scale(float newScale);
+	void Scale(float xScale, float yScale, float zScale);
 		/**
 		 * Rotate the entity.
 		 * @param[in] rx How far along the x Axis the entity is being rotated.
@@ -91,25 +91,32 @@ public:
 		 * @param[in] newZ The z rotation to set the entity.
 		*/
 	void SetRotation(float newX, float newY, float newZ);
+
+	void SetId(int id);
+	int GetId();
+
+	bool operator > (Entity &rhs);
+	bool operator < (Entity &rhs);
 private:
 
 private:
+	int m_id;
 		/**
 		 * The x, y, and z positions of the entity.
 		 */
-	float x, y, z;
+	float m_x, m_y, m_z;
 		/**
 		 * The scale of the entity.
 		 */
-	float scale;
+	float m_xscale, m_yscale, m_zscale;
 		/**
 		 * The x, y, and z rotations of the entity.
 		 */
-	float xr, yr, zr;
+	float m_xr, m_yr, m_zr;
 		/**
 		 * A vector containing all the models to be rendered, and their offsets from the entity.
 		 */
-	std::vector<OffsetModel*> m_models;
+	std::vector<OffsetModel> m_models;
 
 };
 

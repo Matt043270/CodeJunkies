@@ -16,8 +16,9 @@ public:
 	~Texture();
 
 	GLuint GetTextureId();
-	bool operator > (const Texture &rhs);
-	bool operator < (const Texture &rhs);
+	void SetTextureId(GLuint textureId);
+	bool operator > (Texture &rhs);
+	bool operator < (Texture &rhs);
 private:
 	
 private:
