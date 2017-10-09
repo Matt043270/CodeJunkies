@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <GL/glut.h>
-#include "Particle.h"
-#include "Cube.h"
+#include "../Particle.h"
+#include "../Cube.h"
 
 using namespace std;
 
