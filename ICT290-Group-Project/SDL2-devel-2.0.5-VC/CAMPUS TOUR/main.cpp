@@ -8,6 +8,7 @@
 #include "texturedPolygons.h"
 #include "DisplayWorld.h"
 #include "StaticModel.h"
+#include "MyAI.h"
 
 //--------------------------------------------------------------------------------------
 
@@ -52,6 +53,9 @@ GLdouble step, step2, stepLength;
 // objects
 Camera cam;
 DisplayWorld displayWorld;
+
+MyAI ai;
+Point kartPointA;
 
 StaticModel hallwayModel;
 StaticModel trackModel;
@@ -164,6 +168,8 @@ void myinit()
 	trackModel.Translate(62136, 7600, 46000);
 	trackModel.Rotate(0, 90, 0);
 	trackModel.Scale(130, 130, 130);
+
+	ai.readInFile("trackPathA.txt");
 }
 
 //--------------------------------------------------------------------------------------
@@ -200,6 +206,15 @@ void Display()
 	displayWorld.RenderWorld(lightsOn);
 	hallwayModel.Render(displayWorld.GetTexture(HALLWAY_TEX));
 	trackModel.Render(displayWorld.GetTexture(TRACK_TEX));
+
+	glPushMatrix();
+		//get the karts updated position
+	kartPointA = ai.Update();
+		//move the kart to the new position
+	glTranslatef(kartPointA.x, kartPointA.y, kartPointA.z);
+
+	glutWireSphere(100, 100, 10);
+	glPopMatrix();
 	glPopMatrix();
 	glDisable(GL_TEXTURE_2D);
 
@@ -364,6 +379,16 @@ void keys(unsigned char key, int x, int y)
 	}
 	break;
 
+	//these don't work properly I think (but they aren't permanent anyway)
+	case 'e':
+	{
+		
+		ai.setSpeed(100);
+	}
+	case 'h':
+	{
+		ai.setSpeed(50);
+	}
 	}
 }
 
