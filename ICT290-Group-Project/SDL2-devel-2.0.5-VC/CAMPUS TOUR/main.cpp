@@ -174,6 +174,8 @@ void myinit()
 		cout << "problems reading file" << endl;
 	}
 
+	ai.readFuelFile("fuelPath.txt");
+
 	
 	
 }
