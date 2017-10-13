@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1507877965 source:c:\000uniwork\ict290 games programming try 2\aass1\testai\main.cpp
+	<iostream>
+	"MyAI.h"
+	<string>
+
+1507878969 source:c:\000uniwork\ict290 games programming try 2\aass1\testai\myai.cpp
+	"MyAI.h"
+
+1507887104 c:\000uniwork\ict290 games programming try 2\aass1\testai\myai.h
+	<fstream>
+	<sstream>
+	<iostream>
+	"mystack.h"
+	<string>
+	<math.h>
+
+1507004564 c:\000uniwork\ict290 games programming try 2\aass1\testai\mystack.h
+	<stack>
+

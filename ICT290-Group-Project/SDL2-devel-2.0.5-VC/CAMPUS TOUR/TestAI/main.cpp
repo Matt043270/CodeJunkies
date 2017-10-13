@@ -8,13 +8,17 @@ int main()
 {
     MyAI ai;
     int i = 0;
+    Point b;
 
 
-    string line = "path2.txt";
-    if(ai.readInFile(line) == 0)
+    string line = "path.txt";
+    string line2 = "fuelPath.txt";
+    if(ai.readInFile(line) == 0 || ai.readFuelFile(line2) == 0)
     {
         cout << "Failed to read file" << endl;
     }
+
+
     else
     {
         while(i == 0)
@@ -22,7 +26,8 @@ int main()
             cout << "Press 1 to stop" << endl;
             cin >> i;
 
-            ai.Update();
+            b = ai.Update();
+            cout << b.x << " " << b.y << " " << b.z << " " << b.rot << endl;
         }
 
     }
