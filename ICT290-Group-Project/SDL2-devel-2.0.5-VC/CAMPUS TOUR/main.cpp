@@ -169,7 +169,13 @@ void myinit()
 	trackModel.Rotate(0, 90, 0);
 	trackModel.Scale(130, 130, 130);
 
-	ai.readInFile("trackPathA.txt");
+	if (ai.readInFile("trackPathA.txt") == 0)
+	{
+		cout << "problems reading file" << endl;
+	}
+
+	
+	
 }
 
 //--------------------------------------------------------------------------------------
@@ -212,8 +218,8 @@ void Display()
 	kartPointA = ai.Update();
 		//move the kart to the new position
 	glTranslatef(kartPointA.x, kartPointA.y, kartPointA.z);
-
-	glutWireSphere(100, 100, 10);
+	glTranslatef(kartPointA.rot, 0, 0);
+	glutWireSphere(200, 100, 10);
 	glPopMatrix();
 	glPopMatrix();
 	glDisable(GL_TEXTURE_2D);
@@ -380,7 +386,7 @@ void keys(unsigned char key, int x, int y)
 	break;
 
 	//these don't work properly I think (but they aren't permanent anyway)
-	case 'e':
+	/*case 'e':
 	{
 		
 		ai.setSpeed(100);
@@ -388,7 +394,7 @@ void keys(unsigned char key, int x, int y)
 	case 'h':
 	{
 		ai.setSpeed(50);
-	}
+	}*/
 	}
 }
 
