@@ -87,4 +87,5 @@ void EntityKart::Turn(KartTurnDirection dir)
 void EntityKart::Tick()
 {
 
+
 }
