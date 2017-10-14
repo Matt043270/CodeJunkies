@@ -14,7 +14,7 @@ void EntityKart::Initialize()
 {
 	m_speed = 0;
 	m_direction = NONE;
-	m_turnAngle = 0;
+	m_turnSpeed = 0;
 }
 
 void EntityKart::Unload()
@@ -49,12 +49,12 @@ void EntityKart::Idle()
 			m_speed = 0;
 		}
 	}
-	if (m_turnAngle > 0)
+	if (m_turnSpeed > 0)
 	{
-		m_turnAngle -= TURN_DECAY;
-		if (m_turnAngle <= 0)
+		m_turnSpeed -= TURN_DECAY;
+		if (m_turnSpeed <= 0)
 		{
-			m_turnAngle = 0;
+			m_turnSpeed = 0;
 			m_direction = NONE;
 		}
 	}
@@ -72,15 +72,15 @@ void EntityKart::Brake()
 void EntityKart::Turn(KartTurnDirection dir)
 {
 	int turnDelta = (m_direction == dir) ? 1 : -1;
-	m_turnAngle += turnDelta * TURN_SPEED;
-	if (m_turnAngle > MAX_TURN_SPEED)
+	m_turnSpeed += turnDelta * TURN_SPEED;
+	if (m_turnSpeed > MAX_TURN_SPEED)
 	{
-		m_turnAngle = MAX_TURN_SPEED;
+		m_turnSpeed = MAX_TURN_SPEED;
 	}
-	else if(m_turnAngle < 0)
+	else if(m_turnSpeed < 0)
 	{
 		m_direction = dir;
-		m_turnAngle *= -1;
+		m_turnSpeed *= -1;
 	}
 }
 
