@@ -37,7 +37,7 @@ class InputManager
 		bool imMouseClicked; 
 			/// Tracks the states of keyboard keys (true = key pressed, false = key not pressed)
 		bool imKeyStates[256]; 
-			/// Tracks the states of special arrow keys (true = key pressed, false = key not pressed
+			/// Tracks the states of special arrow keys (true = key pressed, false = key not pressed)
 		bool imSpecialKeyStates[4]; 
 		
 
