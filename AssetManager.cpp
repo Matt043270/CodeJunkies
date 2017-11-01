@@ -128,206 +128,6 @@ void AssetManager::LoadTexture(std::string texFile, Texture * tex, int width, in
 	tex->SetTextureId(texId);
 }
 
-void AssetManager::LoadAllAssets()
-{
-	// Hallway
-	Texture * texHallway = new Texture();
-	LoadTexture("data/models/imagemapHallway.raw", texHallway, 2048, 1024);
-	AddTexture(texHallway);
-
-	StaticModel * objHallway = new StaticModel();
-	LoadObjFile("data/models/hallway.obj", objHallway);
-	objHallway->LoadToCalllist(500);
-	objHallway->SetTexture(texHallway);
-	AddModel(objHallway);
-
-	Entity * ntyHallway = new Entity();
-	ntyHallway->SetId(1);
-	ntyHallway->AddModel(objHallway, 0, 0, 0);
-	ntyHallway->SetPosition(34350, 10000, 42097);
-	ntyHallway->SetRotation(0, 180, 0);
-	ntyHallway->Scale(13.5f, 8.8f, 9.9f);
-	AddEntity(ntyHallway);
-	
-	// Track
-	Texture * texTrack = new Texture();
-	//LoadTexture("data/models/imagemapTrack.raw", texTrack, 1024, 512);
-	LoadTexture("data/models/trackBake.raw", texTrack, 1024, 1024);
-	AddTexture(texTrack);
-
-	StaticModel * objTrack = new StaticModel();
-	LoadObjFile("data/models/track.obj", objTrack);
-	objTrack->LoadToCalllist(501);
-	objTrack->SetTexture(texTrack);
-	AddModel(objTrack);
-
-	Entity * ntyTrack = new Entity();
-	ntyTrack->SetId(2);
-	ntyTrack->AddModel(objTrack, 0, 0, 0);
-	ntyTrack->Translate(62136, 7600, 46000);
-	ntyTrack->Rotate(0, 90, 0);
-	ntyTrack->Scale(130, 130, 130);
-	AddEntity(ntyTrack);
-
-	// Kart
-	Texture * texKart = new Texture();
-	LoadTexture("data/models/kartRedBaked.raw", texKart, 2048, 2048);
-	//LoadTexture("data/models/Trex.raw", texKart, 512, 512);
-	AddTexture(texKart);
-
-	StaticModel * objKart = new StaticModel();
-	LoadObjFile("data/models/kartRedBaked.obj", objKart);
-	//LoadObjFile("data/models/trex.obj", objKart);
-	objKart->LoadToCalllist(502);
-	objKart->SetTexture(texKart);
-	AddModel(objTrack);
-
-	EntityKart * ntyKart = new EntityKart();
-	ntyKart->SetId(3);
-	ntyKart->AddModel(objKart, 0, 0, 0);
-	ntyKart->Translate(50000, 7700, 35000);
-	//ntyKart->Translate(34000, 10450, 42000);
-	ntyKart->Rotate(0, 0, 0);
-	ntyKart->Scale(50, 50, 50);
-	ntyKart->Initialize();
-	AddEntity(ntyKart);
-
-	// Fuel
-	/*Texture * texFuel = new Texture();
-	LoadTexture("data/models/fuel.raw", texFuel, 512, 512);
-	AddTexture(texFuel);
-
-	StaticModel * objFuel = new StaticModel();
-	LoadObjFile("data/models/fuel.obj", objFuel);
-	objFuel->LoadToCalllist(505);
-	objFuel->SetTexture(texFuel);
-	AddModel(objFuel);
-
-	EntityFuel * ntyFuel = new EntityFuel();
-	ntyFuel->SetId(10);
-	ntyFuel->AddModel(objFuel, 0, 0, 0);
-	ntyFuel->Translate(50000, 7700, 35000);
-	ntyFuel->Rotate(0, 0, 0);
-	ntyFuel->Scale(500, 500, 500);
-	AddEntity(ntyFuel);*/
-
-	// Bleachers
-	Texture * texBleachers = new Texture();
-	LoadTexture("data/models/bleacherBake.raw", texBleachers, 1024, 1024);
-	AddTexture(texBleachers);
-
-	StaticModel * objBleachers = new StaticModel();
-	LoadObjFile("data/models/bleacherBaked.obj", objBleachers);
-	objBleachers->LoadToCalllist(503);
-	objBleachers->SetTexture(texBleachers);
-	AddModel(objBleachers);
-
-	Entity * ntyBleachers1 = new Entity();
-	ntyBleachers1->SetId(4);
-	ntyBleachers1->AddModel(objBleachers, 0, 0, 0);
-	ntyBleachers1->Translate(45000, 7900, 26000);
-	ntyBleachers1->Rotate(0, -20, 0);
-	ntyBleachers1->Scale(300, 300, 300);
-	AddEntity(ntyBleachers1);
-
-	Entity * ntyBleachers2 = new Entity();
-	ntyBleachers2->SetId(5);
-	ntyBleachers2->AddModel(objBleachers, 0, 0, 0);
-	ntyBleachers2->Translate(53000, 7900, 21000);
-	ntyBleachers2->Rotate(0, -90, 0);
-	ntyBleachers2->Scale(300, 300, 300);
-	AddEntity(ntyBleachers2);
-
-	Entity * ntyBleachers3 = new Entity();
-	ntyBleachers3->SetId(6);
-	ntyBleachers3->AddModel(objBleachers, 0, 0, 0);
-	ntyBleachers3->Translate(58000, 7900, 21000);
-	ntyBleachers3->Rotate(0, -90, 0);
-	ntyBleachers3->Scale(300, 300, 300);
-	AddEntity(ntyBleachers3);
-
-	Entity * ntyBleachers4 = new Entity();
-	ntyBleachers4->SetId(7);
-	ntyBleachers4->AddModel(objBleachers, 0, 0, 0);
-	ntyBleachers4->Translate(63000, 7900, 21000);
-	ntyBleachers4->Rotate(0, -90, 0);
-	ntyBleachers4->Scale(300, 300, 300);
-	AddEntity(ntyBleachers4);
-
-	Entity * ntyBleachers5 = new Entity();
-	ntyBleachers5->SetId(8);
-	ntyBleachers5->AddModel(objBleachers, 0, 0, 0);
-	ntyBleachers5->Translate(70000, 7900, 26000);
-	ntyBleachers5->Rotate(0, -160, 0);
-	ntyBleachers5->Scale(300, 300, 300);
-	AddEntity(ntyBleachers5);
-
-	Entity * ntyBleachers6 = new Entity();
-	ntyBleachers6->SetId(9);
-	ntyBleachers6->AddModel(objBleachers, 0, 0, 0);
-	ntyBleachers6->Translate(45000, 7900, 76000);
-	ntyBleachers6->Rotate(0, 20, 0);
-	ntyBleachers6->Scale(300, 300, 300);
-	AddEntity(ntyBleachers6);
-
-	Entity * ntyBleachers7 = new Entity();
-	ntyBleachers7->SetId(10);
-	ntyBleachers7->AddModel(objBleachers, 0, 0, 0);
-	ntyBleachers7->Translate(53000, 7900, 81000);
-	ntyBleachers7->Rotate(0, 90, 0);
-	ntyBleachers7->Scale(300, 300, 300);
-	AddEntity(ntyBleachers7);
-
-	Entity * ntyBleachers8 = new Entity();
-	ntyBleachers8->SetId(11);
-	ntyBleachers8->AddModel(objBleachers, 0, 0, 0);
-	ntyBleachers8->Translate(58000, 7900, 81000);
-	ntyBleachers8->Rotate(0, 90, 0);
-	ntyBleachers8->Scale(300, 300, 300);
-	AddEntity(ntyBleachers8);
-
-	Entity * ntyBleachers9 = new Entity();
-	ntyBleachers9->SetId(12);
-	ntyBleachers9->AddModel(objBleachers, 0, 0, 0);
-	ntyBleachers9->Translate(63000, 7900, 81000);
-	ntyBleachers9->Rotate(0, 90, 0);
-	ntyBleachers9->Scale(300, 300, 300);
-	AddEntity(ntyBleachers9);
-
-	Entity * ntyBleachers10 = new Entity();
-	ntyBleachers10->SetId(13);
-	ntyBleachers10->AddModel(objBleachers, 0, 0, 0);
-	ntyBleachers10->Translate(70000, 7900, 76000);
-	ntyBleachers10->Rotate(0, 160, 0);
-	ntyBleachers10->Scale(300, 300, 300);
-	AddEntity(ntyBleachers10);
-
-	// Grass
-	Texture * texGrass = new Texture();
-	LoadTexture("data/grassPlane.raw", texGrass, 512, 512);
-	AddTexture(texGrass);
-	GenerateTrackPlane(499, texGrass);
-
-	// Finish Line
-	Texture * texFinishLine = new Texture();
-	LoadTexture("data/models/finishLineBake.raw", texFinishLine, 1024, 1024);
-	AddTexture(texFinishLine);
-
-	StaticModel * objFinishLine = new StaticModel();
-	LoadObjFile("data/models/finishLineBake.obj", objFinishLine);
-	objFinishLine->LoadToCalllist(504);
-	objFinishLine->SetTexture(texFinishLine);
-	AddModel(objFinishLine);
-
-	Entity * ntyFinishLine = new Entity();
-	ntyFinishLine->SetId(14);
-	ntyFinishLine->AddModel(objFinishLine, 0, 0, 0);
-	ntyFinishLine->Translate(50500, 7700, 34000);
-	ntyFinishLine->Rotate(0, 90, 0);
-	ntyFinishLine->Scale(300, 300, 500);
-	AddEntity(ntyFinishLine);
-
-}
 
 void AssetManager::AddModel(StaticModel * model)
 {
@@ -344,13 +144,16 @@ void AssetManager::AddEntity(Entity * entity)
 	m_entities.Insert(entity);
 }
 
-void AssetManager::RenderLoadedEntities()
+void AssetManager::RenderLoadedEntities(bool renderGrass)
 {
-	glPushMatrix();
-	glTranslatef(30136, 7450, 10000);
-	glBindTexture(GL_TEXTURE_2D, m_trackPlaneTex->GetTextureId());
-	glCallList(499);
-	glPopMatrix();
+	if (renderGrass)
+	{
+		glPushMatrix();
+		glTranslatef(30136, 7450, 10000);
+		glBindTexture(GL_TEXTURE_2D, m_trackPlaneTex->GetTextureId());
+		glCallList(499);
+		glPopMatrix();
+	}
 	m_entities.InOrderTraversal(RenderEntityCallback);
 }
 

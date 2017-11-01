@@ -7,6 +7,23 @@ ExploreState::ExploreState()
 
 void ExploreState::Initialize()
 {
+	Texture * texHallway = new Texture();
+	AssetManager::LoadTexture("data/models/imagemapHallway.raw", texHallway, 2048, 1024);
+	m_assetManager.AddTexture(texHallway);
+
+	StaticModel * objHallway = new StaticModel();
+	AssetManager::LoadObjFile("data/models/hallway.obj", objHallway);
+	objHallway->LoadToCalllist(500);
+	objHallway->SetTexture(texHallway);
+	m_assetManager.AddModel(objHallway);
+
+	Entity * ntyHallway = new Entity();
+	ntyHallway->SetId(1);
+	ntyHallway->AddModel(objHallway, 0, 0, 0);
+	ntyHallway->SetPosition(34350, 10000, 42097);
+	ntyHallway->SetRotation(0, 180, 0);
+	ntyHallway->Scale(13.5f, 8.8f, 9.9f);
+	m_assetManager.AddEntity(ntyHallway);
 	// set the world co-ordinates (used to set quadrants for bounding boxes)
 	m_cam.SetWorldCoordinates(36000.0, 43200.0);
 	// turn collision detection on
@@ -14,7 +31,7 @@ void ExploreState::Initialize()
 	// set number of bounding boxes required
 	m_cam.SetNoBoundingBoxes(19);
 	// set starting position of user
-	//cam.Position(32720.0, 9536.0,	4800.0, 180.0);
+	//m_cam.Position(32720.0, 9536.0,	4800.0, 180.0);
 	// Start at hallway
 	m_cam.Position(34000, 10450.0, 42000.0, 90.0);
 	//cam.Position(50000, 8200, 34000, 90.0);
@@ -28,20 +45,30 @@ void ExploreState::Initialize()
 	// load texture images and create display lists
 	m_displayWorld.DrawWorld();
 
-
+	m_texGameBoard = new Texture();
+	AssetManager::LoadTexture("data/ntkgBoard.raw", m_texGameBoard, 1024, 512);
 
 }
 
 void ExploreState::update(const float dx)
 {
 	m_stepIncrement = dx * 1400;
-	m_angleIncrement = 0.07f;//dx;
-
+	m_angleIncrement = dx * 1.6f;
+	m_movementSpeed = dx * 3500;
 	handleInput();
 
 	// check for movement
 	m_cam.CheckCamera();
-
+	if (m_cam.GetLR() >= 44970 && m_cam.GetLR() <= 46000 &&
+		m_cam.GetFB() >= 41322 && m_cam.GetFB() <= 42779 &&
+		m_cam.GetUD() == 9685)
+	{
+		m_displayGameStartScreen = true;
+	}
+	else
+	{
+		m_displayGameStartScreen = false;
+	}
 	m_cam.SetMoveSpeed(m_movementSpeed);
 	m_cam.SetRotateSpeed(m_angleIncrement);
 
@@ -58,6 +85,8 @@ void ExploreState::draw(const float dx)
 	if (m_DisplayMap) m_cam.DisplayMap(m_width, m_height, m_displayWorld.getMapTex());
 	// display images
 	m_displayWorld.RenderWorld(m_lightsOn);
+	m_assetManager.RenderLoadedEntities(false);
+	if (m_displayGameStartScreen) m_cam.DisplayWelcomeScreen(m_width, m_height, 1, m_texGameBoard->GetTextureId());
 
 }
 
@@ -100,6 +129,14 @@ void ExploreState::handleInput()
 	{
 		m_DisplayMap = !m_DisplayMap;
 	}
+	if (InputManager::GetInstance()->GetKeyState((int)'H') == IM_KEY_PRESSED || InputManager::GetInstance()->GetKeyState((int)'h') == IM_KEY_PRESSED)
+	{
+		m_cam.DirectionUD(1);
+	}
+	if (InputManager::GetInstance()->GetKeyState((int)'B') == IM_KEY_PRESSED || InputManager::GetInstance()->GetKeyState((int)'b') == IM_KEY_PRESSED)
+	{
+		m_cam.DirectionUD(-1);
+	}
 	if (InputManager::GetInstance()->GetKeyState(27) == IM_KEY_PRESSED)
 	{
 		m_cam.SetRotateSpeed(0.0f);
@@ -117,6 +154,14 @@ void ExploreState::handleInput()
 	if (InputManager::GetInstance()->GetKeyState((int)'P') == IM_KEY_PRESSED || InputManager::GetInstance()->GetKeyState((int)'p') == IM_KEY_PRESSED)
 	{
 		m_displayECL = !m_displayECL;
+	}
+	if (InputManager::GetInstance()->GetKeyState(13) == IM_KEY_PRESSED)
+	{
+		if (m_displayGameStartScreen)
+		{
+			m_preGameState->Initialize();
+			m_gameManager->changeState(m_preGameState);
+		}
 	}
 
 	// keys up
@@ -137,6 +182,11 @@ void ExploreState::handleInput()
 		InputManager::GetInstance()->GetKeyState((int)'Q') == IM_KEY_RELEASED && InputManager::GetInstance()->GetKeyState((int)'q') == IM_KEY_RELEASED)
 	{
 		m_cam.DirectionLookUD(0);
+	}
+	if (InputManager::GetInstance()->GetKeyState((int)'H') == IM_KEY_RELEASED && InputManager::GetInstance()->GetKeyState((int)'h') == IM_KEY_RELEASED &&
+		InputManager::GetInstance()->GetKeyState((int)'B') == IM_KEY_RELEASED && InputManager::GetInstance()->GetKeyState((int)'b') == IM_KEY_RELEASED)
+	{
+		m_cam.DirectionUD(0);
 	}
 }
 
@@ -244,11 +294,17 @@ void ExploreState::CreateBoundingBoxes()
 	m_cam.SetAABBMaxZ(16, 10395.0);
 	m_cam.SetAABBMinZ(16, 4590.0);
 
-	// Team CodeJunies inner hallway wall
+	// Team CodeJunkies inner hallway wall
 	m_cam.SetAABBMaxX(17, 50000.0);
 	m_cam.SetAABBMinX(17, 34320.0);
 	m_cam.SetAABBMaxZ(17, 41127.0);
 	m_cam.SetAABBMinZ(17, 41000.0);
+
+	// Team CodeJunkies game portal
+	m_cam.SetAABBMaxX(18, 46000.0);
+	m_cam.SetAABBMinX(18, 45500.0);
+	m_cam.SetAABBMaxZ(18, 42779.0);
+	m_cam.SetAABBMinZ(18, 41322.0);
 }
 
 //--------------------------------------------------------------------------------------
@@ -344,4 +400,9 @@ void ExploreState::MouseClick(int button, int state, int x, int y)
 			exit(1);
 		}
 	}
+}
+
+void ExploreState::AddPreGameState(PreGameState * state)
+{
+	m_preGameState = state;
 }

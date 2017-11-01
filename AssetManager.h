@@ -8,6 +8,7 @@
 #include "Entity.h"
 #include "EntityKart.h"
 #include "EntityFuel.h"
+#include "EntityAIKart.h"
 
 class AssetManager
 {
@@ -49,20 +50,20 @@ public:
 		 */
 	void AddEntity(Entity * entity);
 
-		/**
-		 * Beings the loading of all the assets used by the game.
-		 */
-	void LoadAllAssets();
 
 		/**
 		 * Render all loaded entities onto the screen.
 		 */
-	void RenderLoadedEntities();
+	void RenderLoadedEntities(bool renderGrass);
 
 		/**
 		 * Unloads all entities, models, and textures from memory.
 		 */
 	void UnloadAll();
+
+
+	void GenerateTrackPlane(int listId, Texture * tex);
+
 private:
 		/**
 		 * Callback for the BST, used while rendering each entity.
@@ -84,8 +85,6 @@ private:
 		 * @param[in] entity The pointer to the entity.
 		 */
 	static void UnloadEntityCallback(Entity * entity);
-
-	void GenerateTrackPlane(int listId, Texture * tex);
 private:
 		/**
 		 * A BST of all the models

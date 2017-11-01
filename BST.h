@@ -27,12 +27,14 @@ public:
 	void PreOrderTraversal(void(*callback)(T*));
 	void InOrderTraversal(void(*callback)(T*));
 	void PostOrderTraversal(void(*callback)(T*));
+	void DeleteAll();
 
 private:
 	void recursiveInsert(BSTNode<T> * rootNode, T * newValue);
 	void recursivePreOrderTraversal(BSTNode<T> * rootNode, void(*callback)(T*));
 	void recursiveInOrderTraversal(BSTNode<T> * rootNode, void(*callback)(T*));
 	void recursivePostOrderTraversal(BSTNode<T> * rootNode, void(*callback)(T*));
+	void recursiveDeleteAll(BSTNode<T> * rootNode);
 
 private:
 	BSTNode<T> * rootNode;
@@ -166,6 +168,30 @@ void BST<T>::recursivePostOrderTraversal(BSTNode<T> * rootNode, void(*callback)(
 	callback(rootNode->value);
 }
 
+template <class T>
+void BST<T>::DeleteAll()
+{
+	if (rootNode != nullptr)
+	{
+		recursiveDeleteAll(rootNode);
+	}
+	rootNode = nullptr;
+}
 
+template <class T>
+void BST<T>::recursiveDeleteAll(BSTNode<T> * rootNode)
+{
+	if (rootNode->left != nullptr)
+	{
+		recursiveDeleteAll(rootNode->left);
+	}
+	if (rootNode->right != nullptr)
+	{
+		recursiveDeleteAll(rootNode->right);
+	}
+
+	delete rootNode->value;
+	delete rootNode;
+}
 
 #endif

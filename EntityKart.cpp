@@ -12,7 +12,7 @@ EntityKart::~EntityKart()
 
 void EntityKart::Initialize()
 {
-	m_speed = 0;
+	m_speed = 0.1f;
 	m_direction = NONE;
 	m_turnSpeed = 0;
 }

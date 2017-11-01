@@ -7,7 +7,7 @@
 class GameState
 {
 public:
-	GameManager* gameManager;
+	GameManager* m_gameManager;
 
 	virtual void draw(const float dt) = 0;
 	virtual void update(const float dt) = 0;

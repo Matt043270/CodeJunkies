@@ -14,6 +14,7 @@
 
 #include "GameManager.h"
 #include "ExploreState.h"
+#include "PreGameState.h"
 
 //--------------------------------------------------------------------------------------
 
@@ -29,10 +30,11 @@ float ratio;
 float frame;
 
 // States
-GameManager stateManager;
+GameManager * stateManager;
 ExploreState * exploreState;
+PreGameState * preGameState;
 
-AssetManager assetManager;
+//AssetManager assetManager;
 SkyBox sbMain;
 
 // initializes setting
@@ -93,9 +95,13 @@ void myinit()
 		0.0, 1.75, -1,
 		0.0f, 1.0f, 0.0f);
 
+	stateManager = new GameManager();
 	exploreState = new ExploreState();
+	exploreState->m_gameManager = stateManager;
 	exploreState->Initialize();
-	stateManager.changeState(exploreState);
+	preGameState = new PreGameState();
+	exploreState->AddPreGameState(preGameState);
+	stateManager->changeState(exploreState);
 
 	InputManager::GetInstance()->Initialize();
 
@@ -108,7 +114,7 @@ void myinit()
 		"data/skybox/DN.data"
 	);
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-	assetManager.LoadAllAssets();
+	//assetManager.LoadAllAssets();
 }
 
 //--------------------------------------------------------------------------------------
@@ -119,25 +125,20 @@ void Display()
 	// set the movement and rotation speed according to frame count
 	IncrementFrameCount();
 
-	stateManager.peekState()->update(frameCount);
+	stateManager->peekState()->update(frame);
 	
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	// DISPLAY TEXTURES
 	//enable texture mapping
 	glEnable(GL_TEXTURE_2D);
-	sbMain.Render(stateManager.peekState()->GetCamera());
-	glPushMatrix();
 	
-	// display no exit sign (position check should really be in an object, but didn't have time)
-	/*if ((cam.GetLR() > 35500.0) && (cam.GetFB() < 25344.0) ||
-		(cam.GetLR() > 34100.0) && (cam.GetFB() > 41127.0))
-	{
-		cam.DisplayNoExit(width, height, displayWorld.getNoExitTex());
-	}*/
-	stateManager.peekState()->draw(frameCount);
+	glPushMatrix();
 
-	assetManager.RenderLoadedEntities();
+	sbMain.Render(stateManager->peekState()->GetCamera());
+
+	stateManager->peekState()->draw(frame);
+	//assetManager.RenderLoadedEntities();
 	glPopMatrix();
 	glDisable(GL_TEXTURE_2D);
 
@@ -195,7 +196,7 @@ void releaseKeys(unsigned char key, int x, int y)
 //--------------------------------------------------------------------------------------
 void Mouse(int button, int state, int x, int y)
 {
-	stateManager.peekState()->MouseClick(button, state, x, y);
+	stateManager->peekState()->MouseClick(button, state, x, y);
 }
 
 //--------------------------------------------------------------------------------------
@@ -209,11 +210,8 @@ void IncrementFrameCount()
 	// reset after t
 	if (t > 0.1)
 	{
-		//stepIncrement = t / frameCount * 1400;
-		//angleIncrement = t / frameCount;
-		frame = t / frameCount;
+		frame = t / (float)frameCount;
 		frameCount = 0;
 		lastClock = clock();
-		cout << "T: " << t << " FrameCount: " << frameCount << " Frame: " << frame << endl;
 	}
 }

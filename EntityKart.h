@@ -55,7 +55,7 @@ public:
 	void Tick();
 private:
 
-private:
+protected:
 		/**
 		 * The current speed of the kart
 		 */

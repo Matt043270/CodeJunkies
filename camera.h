@@ -36,9 +36,9 @@ class Camera
 public:
 
 	Camera();
-	virtual ~Camera() { es->Unload(stepSound); }
+	~Camera() { es->Unload(stepSound); }
 
-	Camera(const Camera &cam) {};
+	Camera(const Camera &cam);
 	Camera &operator = (const Camera &cam) {};
 
 	//----------------------------------------------------------------------------------

@@ -23,6 +23,7 @@ void Entity::Translate(float x, float y, float z)
 	m_x += x;
 	m_y += y;
 	m_z += z;
+	std::cout << "X: " << m_x << " Y: " << m_y << " Z: " << m_z << std::endl;
 }
 
 void Entity::Scale(float x, float y, float z)

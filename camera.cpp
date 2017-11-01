@@ -37,6 +37,43 @@ Camera::Camera()
 	stepSound = es->GetSound(es->Load("sounds/step.wav"));
 }
 
+Camera::Camera(const Camera &cam)
+{
+	//steep incline increments
+	m_incrementX = cam.m_incrementX;
+	m_incrementZ = cam.m_incrementZ;
+	m_No_Plains = cam.m_No_Plains;
+	m_plainNo = cam.m_plainNo;
+	m_plainHeight = cam.m_plainHeight;
+
+	// rotation variables
+	m_rotateAngleLR = cam.m_rotateAngleLR;
+	m_deltaAngleLR = cam.m_deltaAngleLR;
+	m_rotateAngleUD = cam.m_rotateAngleUD;
+	m_deltaAngleUD = cam.m_deltaAngleUD;
+
+	// movement variables
+	m_x = cam.m_x;
+	m_y = cam.m_y;
+	m_z = cam.m_z;
+	m_zLast = cam.m_zLast;
+	m_xLast = cam.m_xLast;
+	m_lookX = cam.m_lookX;
+	m_lookY = cam.m_lookY;
+	m_lookZ = cam.m_lookZ;
+	m_lookXX = cam.m_lookXX;
+	m_lookYY = cam.m_lookYY;
+	m_lookZZ = cam.m_lookZZ;
+	m_deltaMoveLR = cam.m_deltaMoveLR;
+	m_deltaMoveFB = cam.m_deltaMoveFB;
+	m_deltaMoveUD = cam.m_deltaMoveUD;
+	m_direction = cam.m_direction;
+
+	// movement speed (step size)
+	m_rotateSpeed = cam.m_rotateSpeed;
+	m_moveSpeed = cam.m_moveSpeed;
+}
+
 //--------------------------------------------------------------------------------------
 // Reset camera values
 //--------------------------------------------------------------------------------------
