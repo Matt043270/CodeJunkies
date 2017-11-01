@@ -7,6 +7,7 @@
 #include "Texture.h"
 #include "Entity.h"
 #include "EntityKart.h"
+#include "EntityFuel.h"
 
 class AssetManager
 {

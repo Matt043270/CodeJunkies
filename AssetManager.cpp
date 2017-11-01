@@ -188,9 +188,28 @@ void AssetManager::LoadAllAssets()
 	ntyKart->Translate(50000, 7700, 35000);
 	//ntyKart->Translate(34000, 10450, 42000);
 	ntyKart->Rotate(0, 0, 0);
-	ntyKart->Scale(100, 100, 100);
+	ntyKart->Scale(50, 50, 50);
 	ntyKart->Initialize();
 	AddEntity(ntyKart);
+
+	// Fuel
+	/*Texture * texFuel = new Texture();
+	LoadTexture("data/models/fuel.raw", texFuel, 512, 512);
+	AddTexture(texFuel);
+
+	StaticModel * objFuel = new StaticModel();
+	LoadObjFile("data/models/fuel.obj", objFuel);
+	objFuel->LoadToCalllist(505);
+	objFuel->SetTexture(texFuel);
+	AddModel(objFuel);
+
+	EntityFuel * ntyFuel = new EntityFuel();
+	ntyFuel->SetId(10);
+	ntyFuel->AddModel(objFuel, 0, 0, 0);
+	ntyFuel->Translate(50000, 7700, 35000);
+	ntyFuel->Rotate(0, 0, 0);
+	ntyFuel->Scale(500, 500, 500);
+	AddEntity(ntyFuel);*/
 
 	// Bleachers
 	Texture * texBleachers = new Texture();
@@ -243,6 +262,46 @@ void AssetManager::LoadAllAssets()
 	ntyBleachers5->Scale(300, 300, 300);
 	AddEntity(ntyBleachers5);
 
+	Entity * ntyBleachers6 = new Entity();
+	ntyBleachers6->SetId(9);
+	ntyBleachers6->AddModel(objBleachers, 0, 0, 0);
+	ntyBleachers6->Translate(45000, 7900, 76000);
+	ntyBleachers6->Rotate(0, 20, 0);
+	ntyBleachers6->Scale(300, 300, 300);
+	AddEntity(ntyBleachers6);
+
+	Entity * ntyBleachers7 = new Entity();
+	ntyBleachers7->SetId(10);
+	ntyBleachers7->AddModel(objBleachers, 0, 0, 0);
+	ntyBleachers7->Translate(53000, 7900, 81000);
+	ntyBleachers7->Rotate(0, 90, 0);
+	ntyBleachers7->Scale(300, 300, 300);
+	AddEntity(ntyBleachers7);
+
+	Entity * ntyBleachers8 = new Entity();
+	ntyBleachers8->SetId(11);
+	ntyBleachers8->AddModel(objBleachers, 0, 0, 0);
+	ntyBleachers8->Translate(58000, 7900, 81000);
+	ntyBleachers8->Rotate(0, 90, 0);
+	ntyBleachers8->Scale(300, 300, 300);
+	AddEntity(ntyBleachers8);
+
+	Entity * ntyBleachers9 = new Entity();
+	ntyBleachers9->SetId(12);
+	ntyBleachers9->AddModel(objBleachers, 0, 0, 0);
+	ntyBleachers9->Translate(63000, 7900, 81000);
+	ntyBleachers9->Rotate(0, 90, 0);
+	ntyBleachers9->Scale(300, 300, 300);
+	AddEntity(ntyBleachers9);
+
+	Entity * ntyBleachers10 = new Entity();
+	ntyBleachers10->SetId(13);
+	ntyBleachers10->AddModel(objBleachers, 0, 0, 0);
+	ntyBleachers10->Translate(70000, 7900, 76000);
+	ntyBleachers10->Rotate(0, 160, 0);
+	ntyBleachers10->Scale(300, 300, 300);
+	AddEntity(ntyBleachers10);
+
 	// Grass
 	Texture * texGrass = new Texture();
 	LoadTexture("data/grassPlane.raw", texGrass, 512, 512);
@@ -261,7 +320,7 @@ void AssetManager::LoadAllAssets()
 	AddModel(objFinishLine);
 
 	Entity * ntyFinishLine = new Entity();
-	ntyFinishLine->SetId(9);
+	ntyFinishLine->SetId(14);
 	ntyFinishLine->AddModel(objFinishLine, 0, 0, 0);
 	ntyFinishLine->Translate(50500, 7700, 34000);
 	ntyFinishLine->Rotate(0, 90, 0);
