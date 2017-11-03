@@ -72,7 +72,7 @@ Point EntityAIKart::Update()
 		return pointA;
 	}
 
-	//displayPointA();
+	displayPointA();
 	//displayPointB();
 
 
@@ -131,7 +131,7 @@ bool EntityAIKart::readInFile(string fileString)
 void EntityAIKart::Tick()
 {
 	Update();
-	Translate(pointA.x, pointB.y, pointA.z);
+	SetPosition(pointA.x, pointB.y, pointA.z);
 	Rotate(pointA.rot, 0, 0);
 }
 void EntityAIKart::setPointA(double x, double y, double z)

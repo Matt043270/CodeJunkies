@@ -61,7 +61,11 @@ public:
 		 */
 	void UnloadAll();
 
-
+		/**
+		 * Generates a track plane for the track to sit on. Textures it with the specified texture
+		 * @param[in] listId The id of the calllist
+		 * @param[inout] tex The texture to draw on the plane.
+		 */
 	void GenerateTrackPlane(int listId, Texture * tex);
 
 private:
@@ -98,6 +102,9 @@ private:
 		* A BST of all the entites
 		*/
 	BST<Entity> m_entities;
+		/**
+		 * The texture to draw the track plane on
+		 */
 	Texture * m_trackPlaneTex;
 };
 

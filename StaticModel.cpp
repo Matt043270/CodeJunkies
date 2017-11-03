@@ -74,6 +74,11 @@ void StaticModel::Render()//GLuint tex)
 {
 	glBindTexture(GL_TEXTURE_2D, m_tex->GetTextureId());
 	glCallList(m_callListId);
+	GLenum err;
+	while ((err = glGetError()) != GL_NO_ERROR)
+	{
+		std::cout << "Error: " << gluErrorString(err) << std::endl;
+	}
 }
 
 void StaticModel::OutputVertex()

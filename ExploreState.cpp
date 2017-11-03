@@ -7,6 +7,8 @@ ExploreState::ExploreState()
 
 void ExploreState::Initialize()
 {
+	// Start at hallway
+	m_cam.Position(34000, 10450.0, 42000.0, 90.0);
 	Texture * texHallway = new Texture();
 	AssetManager::LoadTexture("data/models/imagemapHallway.raw", texHallway, 2048, 1024);
 	m_assetManager.AddTexture(texHallway);
@@ -32,8 +34,7 @@ void ExploreState::Initialize()
 	m_cam.SetNoBoundingBoxes(19);
 	// set starting position of user
 	//m_cam.Position(32720.0, 9536.0,	4800.0, 180.0);
-	// Start at hallway
-	m_cam.Position(34000, 10450.0, 42000.0, 90.0);
+	
 	//cam.Position(50000, 8200, 34000, 90.0);
 
 	CreateBoundingBoxes();
@@ -47,7 +48,6 @@ void ExploreState::Initialize()
 
 	m_texGameBoard = new Texture();
 	AssetManager::LoadTexture("data/ntkgBoard.raw", m_texGameBoard, 1024, 512);
-
 }
 
 void ExploreState::update(const float dx)
@@ -84,8 +84,9 @@ void ExploreState::draw(const float dx)
 	// displays the map
 	if (m_DisplayMap) m_cam.DisplayMap(m_width, m_height, m_displayWorld.getMapTex());
 	// display images
-	m_displayWorld.RenderWorld(m_lightsOn);
+
 	m_assetManager.RenderLoadedEntities(false);
+	m_displayWorld.RenderWorld(m_lightsOn);
 	if (m_displayGameStartScreen) m_cam.DisplayWelcomeScreen(m_width, m_height, 1, m_texGameBoard->GetTextureId());
 
 }

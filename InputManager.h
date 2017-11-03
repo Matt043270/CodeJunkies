@@ -17,12 +17,29 @@ private:
 	static InputManager * m_instance;
 public:
 
+		/**
+		 * Initializes the input manager for use.
+		 */
 	void Initialize();
 
+		/**
+		 * Returns the key state of the given key
+		 * @param[in] The key to check
+		 * @retval KeyState The state of the key
+		 */
 	KeyState GetKeyState(int key);
 
+		/**
+		 * The key callback that sets the values of the input manager
+		 * @param[in] key THe key that changed states
+		 * @param[in] press If the key was pressed or not
+		 */
 	void KeyCallback(int key, bool press);
 
+		/**
+		 * Returns a pointer to the instance of the input manager, a singleton class.
+		 * @retval InputManager* THe pointer of the InputManager.
+		 */
 	static InputManager * GetInstance()
 	{
 		if (!m_instance)

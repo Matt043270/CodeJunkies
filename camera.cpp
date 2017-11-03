@@ -547,4 +547,7 @@ void Camera::ClimbSteps(GLdouble stepStart, GLdouble stepFinish, GLdouble stepHe
 }
 //----------------------------------------------------------------------------------------
 
-
+void Camera::SetLookY(float y)
+{
+	m_lookY = y;
+}

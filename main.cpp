@@ -11,10 +11,12 @@
 #include "AssetManager.h"
 #include "SkyBox.h"
 #include "InputManager.h"
+#include "UI.h"
 
 #include "GameManager.h"
 #include "ExploreState.h"
 #include "PreGameState.h"
+#include "GameRunningState.h"
 
 //--------------------------------------------------------------------------------------
 
@@ -33,6 +35,7 @@ float frame;
 GameManager * stateManager;
 ExploreState * exploreState;
 PreGameState * preGameState;
+GameRunningState * gameRunningState;
 
 //AssetManager assetManager;
 SkyBox sbMain;
@@ -100,8 +103,12 @@ void myinit()
 	exploreState->m_gameManager = stateManager;
 	exploreState->Initialize();
 	preGameState = new PreGameState();
+	preGameState->m_gameManager = stateManager;
 	exploreState->AddPreGameState(preGameState);
 	stateManager->changeState(exploreState);
+	gameRunningState = new GameRunningState();
+	preGameState->AddGameRunningState(gameRunningState);
+	
 
 	InputManager::GetInstance()->Initialize();
 
@@ -151,6 +158,8 @@ void Display()
 void reshape(int w, int h)
 {
 	exploreState->SetDimensions(w, h);
+	preGameState->SetDimensions(w, h);
+	gameRunningState->SetDimensions(w, h);
 
 	// Prevent a divide by zero, when window is too short
 	// (you cant make a window of zero width).
@@ -163,6 +172,8 @@ void reshape(int w, int h)
 	glViewport(0, 0, w, h);
 	gluPerspective(45, ratio, 0.1f, 250000);
 	glMatrixMode(GL_MODELVIEW);
+
+	UI::SetScreen(w, h);
 }
 
 //--------------------------------------------------------------------------------------

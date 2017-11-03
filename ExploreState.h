@@ -16,10 +16,24 @@ public:
 
 	ExploreState();
 
+		/**
+		 * Initializes the game state
+		 */
 	void Initialize();
 
+		/**
+		 * Draws the game state.
+		 * @param[in] dt The delta time.
+		 */
 	virtual void draw(const float dt);
+		/**
+		* Updates the game state.
+		* @param[in] dt The delta time.
+		*/
 	virtual void update(const float dt);
+		/**
+		 * Handles the input of the state
+		 */
 	virtual void handleInput();
 
 	virtual void MouseClick(int button, int state, int x, int y);

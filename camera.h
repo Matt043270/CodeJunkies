@@ -213,6 +213,8 @@ public:
 	GLdouble GetFB() { return m_z; }
 	GLdouble GetLookFB() { return m_lookZ; }
 
+	GLdouble GetRotationLR() { return m_rotateAngleLR; }
+
 	/**
 	@brief Returns the maximum X value of the bounding box
 
@@ -334,6 +336,8 @@ public:
 	*/
 	void DirectionLookUD(int const & tempMove);
 
+	void SetLookY(float y);
+
 	/**
 	@brief Displays the map
 
@@ -370,7 +374,7 @@ public:
 	*/
 	void DisplayNoExit(const int & screenWidth, const int & screenHeight,
 		const GLuint & tempImage);
-	
+
 private:
 
 	//steep incline increments

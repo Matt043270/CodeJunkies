@@ -53,6 +53,9 @@ public:
 		 * Called every frame. The tick method will perform the needed translations to the entity itself.
 		 */
 	void Tick();
+
+	float GetSpeed() { return m_speed; }
+	float GetTurnSpeed() { return m_turnSpeed; }
 private:
 
 protected:
@@ -93,7 +96,7 @@ protected:
 		/**
 		 * Constant value that determines how fast the kart will accelerate.
 		 */
-	const float ACCELERATION = 3;
+	const float ACCELERATION = 0.1f;
 		/**
 		 * Constant value that determines how fast the kart will slow down when braking.
 		 */
